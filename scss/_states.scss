@@ -1,0 +1,47 @@
+/*   STATES
+ **************/
+
+
+
+/* General Hover States */
+
+a {
+	@include transition(color)
+	&:hover,
+	&:active,
+	&:focus {
+		color: $hover;
+	}
+}
+
+svg {
+	@include transition(transform)
+	&:hover,
+	&:active,
+	&:focus {
+		color: $hover;
+		transform: scale(1.1);
+	}
+}
+
+/* SVG */
+
+// Colleen SVG
+
+.colleen-icon {
+
+	.hair { 
+		animation: wind 4.5s ease infinite;
+		transform-origin: bottom;
+	}
+
+}
+
+@keyframes wind {
+
+  70% {
+    transform: skewX(-7deg);
+  }
+
+}
+

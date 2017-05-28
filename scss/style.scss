@@ -1,0 +1,51 @@
+/*!
+CG Studio: CG Studio
+Theme URI: https://cgeohagan.github.io
+Author: Colleen Geohagan
+Author URI: https://cgeohagan.github.io
+Description: Custom theme for CG Studio
+Version: 1.2
+License: The MIT License (MIT)
+License URI: http://opensource.org/licenses/MIT
+Text Domain: cg-studio
+*/
+
+
+/* RESET & CONFIG
+------------------ */
+@import "config/reset"; 
+@import "config/mixins";
+@import "config/variables";
+
+
+/* =BASE
+------------------ */
+@import "base";
+
+
+/* =LAYOUTS
+------------------ */
+@import "layout";
+
+
+/* =MODULES
+------------------ */
+@import "modules/header";
+@import "modules/main";
+@import "modules/footer";
+@import "modules/forms";
+
+
+/* =THEMES
+------------------ */
+@import "themes";
+
+
+/* =STATES
+------------------ */
+@import "states";
+
+
+/* =IE STYLES
+------------------ */
+@import "ie";

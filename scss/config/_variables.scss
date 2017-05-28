@@ -1,0 +1,59 @@
+/*     VARIABLES
+ *******************/
+
+
+
+/* Sizes */
+
+$footer-height: 163px;
+
+
+
+/* Colors */
+
+// Descriptive color variables 
+
+$white          : #fff;
+$black          : #000;
+$dark-grey      : #313131;
+$cream          : #f9eddd;
+//old light cream: #f6f6f2;
+$med-cream      : #ebdfd3;
+$rouge          : #d18d83;
+$green          : #21492f;
+$gold           : #af9269;
+$mint           : #d5dddf;
+
+// Functional color variables
+
+$link               : $rouge;
+$hover              : $white;
+$text               : $black;
+
+
+
+/* Fonts */
+
+$stack-san-serif: 'Montserrat', sans-serif;
+$stack-serif : 'Cormorant Garamond', serif;
+
+
+
+/* Font Size */
+
+$xsmall: 14px;
+$small:  16px;
+$medium: 18px;
+$large:  30px;
+$xlarge: 48px;
+
+
+
+/* Breakpoints */
+
+$xl: 1200px;
+$l: 1000px;
+$m: 850px;
+$s: 740px;
+$xs: 500px;
+

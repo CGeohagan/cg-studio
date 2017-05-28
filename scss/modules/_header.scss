@@ -1,0 +1,37 @@
+/*      HEADER 
+ ********************/
+
+.logo {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	top: 2em;
+}
+
+.access {
+	background-color: $cream;
+	border-bottom: 3px solid $dark-grey;
+	border-top: 3px solid $dark-grey;
+	display: flex;
+	flex-direction: column;
+	height: 30vh;
+	justify-content: center;
+	left: 3em;
+	position: fixed;
+	top: 35vh;
+	text-align: center;
+	width: calc(22vw - 4em);
+	z-index: 9999;
+}
+
+.menu li {
+	margin: .5em 2em;
+
+	a {
+		color: $dark-grey;
+		&:hover,
+		&:focus {
+			color: $white;
+		}
+	}
+}

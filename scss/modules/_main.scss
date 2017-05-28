@@ -1,0 +1,95 @@
+/*   MAIN 
+ ************/
+
+
+
+/* Border */
+
+.border-top, 
+.border-bottom {
+	content: "";
+	left: 0;
+	right: 0;
+	position: fixed;
+	width: 100vw;
+	z-index: 1000;
+}
+
+.border-top {
+	border-top: 2em solid $white;
+	top: 0;
+}
+
+.border-bottom {
+	border-bottom: 2em solid $white;
+	bottom: 0;
+}
+
+// Remember to include offerings
+
+
+
+/* Front Page */
+
+// Sections
+
+#about,
+#etcetera,
+.hero,
+.intro,
+#work {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 4em);
+	width: 100%;
+
+}
+
+.hero, 
+.intro {
+	justify-content: center;
+}
+
+.hero {
+	&__title {
+		font-size: $xlarge;
+	}
+}
+
+.intro {
+		&__text {
+		font-size: $large;
+		font-style: italic;
+		margin: 1em 0;
+		text-align: center;
+		width: 60%;
+	}
+}
+
+
+
+/* Logo SVG */
+
+.logo-foliage {
+	width: 320px;
+	
+	.fern {
+		fill: $black;
+	}
+
+	.pink-flower {
+		fill: $cream;
+	}
+
+	.vines {
+		stroke: $black;
+	}
+
+	.white-flower {
+		fill: $white;
+	}
+
+}
+
+
