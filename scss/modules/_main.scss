@@ -1,7 +1,23 @@
 /*   MAIN 
  ************/
 
+/* Button */
 
+.pink-button {
+	background-color: $white;
+	margin-top: 5em;
+	width: 100px;
+	
+	&:hover {
+		background-color: $rouge;
+	}
+
+	a {
+		font-family: $stack-san-serif;
+		text-transform: uppercase;
+		padding: .5em;
+	}
+}
 
 /* Border */
 
@@ -31,13 +47,9 @@
 
 /* Front Page */
 
-// Sections
-
-#about,
-#etcetera,
+.col-right,
 .hero,
-.intro,
-#work {
+.intro {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
@@ -92,4 +104,64 @@
 
 }
 
+
+/* Portfolio */
+
+.portfolio__item {
+	padding: 2em 3em;
+
+	img {
+		margin: 1em 0;
+	}
+}
+
+.details {
+	align-items: center;
+	background-color: $light-cream;
+	display: flex;
+	flex-direction: column;
+	padding: 100px 1em;
+
+	&__text {
+		display: flex;
+
+		&-left, &-right {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		&-left {
+			border-right: 2px solid $dark-grey;
+			padding: 1.5em 0;
+			text-align: left;
+			width: 40%;
+
+			h1 {
+				margin-bottom: .2em;
+			}
+		}
+
+		&-right {
+			padding-left: 5%;
+			width: 55%;
+
+			p {
+				font-family: $stack-serif;
+				font-size: $medium;
+				font-style: italic;
+			}
+		}
+	}
+}
+
+.wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.tile {
+	margin: 2em 1em;
+	width: 250px;
+}
 

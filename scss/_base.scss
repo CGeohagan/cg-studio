@@ -32,8 +32,8 @@ h2 {
 }
 
 h3, h4 {
-	font-family: $stack-serif;
-	font-size: $medium;
+	font-family: $stack-san-serif;
+	font-size: $xsmall;
 }
 
 
@@ -60,6 +60,7 @@ li {
 a, 
 button {
 	color: $link;
+	display: block;
 	text-decoration: none;
 	cursor: pointer;
 	&:focus,
@@ -70,7 +71,7 @@ button {
 }
 
 button {
-	outline: none;
+	outline: 1px solid $link;
 }
 
 

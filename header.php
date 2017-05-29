@@ -46,4 +46,4 @@
 			<nav class="access" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			</nav><!-- #access -->  
-		</header><!-- #branding -->
+		</header>

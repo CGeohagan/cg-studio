@@ -2,7 +2,34 @@
  ********************/
 
 
+/* Front Page */
 
+.page-template-front-page {
+
+	#page {
+		background-color: $mint;
+	}
+
+}
+
+.single-portfolio {
+
+	.access {
+		background-color: $mint;
+	}
+
+	.border-top,
+	.border-bottom {
+		border-color: $light-cream;
+	}
+
+	background-color: $light-cream;
+
+	#page {
+		background-color: $white;
+	}
+
+}
 
 
 

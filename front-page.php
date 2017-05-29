@@ -14,7 +14,7 @@ get_header(); ?>
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-    	<div id="home">
+    	<div id="home" class="col-right">
         <section class="hero">
       		<h1 class="hero__title"><?php bloginfo('name'); ?></h1>
       		<?php get_template_part( 'assets/images/logo-foliage.svg' );
@@ -25,7 +25,7 @@ get_header(); ?>
     		</section>
       </div>
 
-      <div id="work">
+      <div id="work" class="col-right">
         <h2>Work</h2>
 
         <?php
@@ -49,7 +49,7 @@ get_header(); ?>
         <?php endwhile; endif; ?>
       </div>
 
-      <div id="about">
+      <div id="about" class="col-right">
         <h2>About</h2>
         <section class="about__section">
           <p class="about__text"><?php the_field('tagline_text'); ?></p>
@@ -58,7 +58,11 @@ get_header(); ?>
         </section>
       </div>
 
-      <div id="etcetera">
+      <div id="contact" class="col-right">
+        <h2>Contact</h2>
+      </div>
+
+      <div id="etcetera" class="col-right">
         <h2>Etcetera</h2>
       </div>
 

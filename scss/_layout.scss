@@ -19,21 +19,9 @@ body {
 	margin-left: calc(22% - 1em);
 }
 
-/* Front Page */
-
-.page-template-front-page {
-
-	#page {
-		background-color: $mint;
-		margin: 2em;
-	}
-
-	#main {
-		min-height: 100vh;
-	}
-
+#page {
+    margin: 2em;
 }
-
 
 
 /* Grid Layout */
