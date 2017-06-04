@@ -102,7 +102,7 @@ add_action('wp_enqueue_scripts', 'cg_studio_scripts');
 
 function wpb_add_google_fonts() {
 
-    wp_enqueue_style('wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,600|Montserrat:400,500', false);
+    wp_enqueue_style('wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,600|Lato:400,500', false);
 }
 
 add_action ('wp_enqueue_scripts', 'wpb_add_google_fonts');

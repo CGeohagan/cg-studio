@@ -39,11 +39,10 @@
 <body <?php body_class(); ?>>
 	<div id="page">
 		<header class="site-header" role="banner" class="row">            
-			<a href="<?php echo esc_url( home_url() ); ?>/" class="logo">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
 				<?php bloginfo('name'); ?>
 			</a>
-
 			<nav class="access" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-			</nav><!-- #access -->  
+			</nav><!-- #access -->
 		</header>

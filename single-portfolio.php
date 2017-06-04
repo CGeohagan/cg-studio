@@ -8,8 +8,6 @@
 
 get_header(); ?>
 
-<div class="border-top"></div>
-<div class="border-bottom"></div>
 
 <main id="main" class="col" role="main">
 
@@ -32,8 +30,6 @@ get_header(); ?>
 				<button class="pink-button"><a href="<?php the_field('link'); ?>">Visit</a></button>
 			</div>
 
-			<div><?php the_field('images'); ?></div>
-
 			<div class="wrap">
 
 					<?php if( have_rows('iphone_mockups') ): ?>
@@ -53,6 +49,8 @@ get_header(); ?>
 					<?php endif; ?>
 
 			</div>
+
+			<div><?php the_field('images'); ?></div>
 
 			<div class="pagination">
     		<div class="pagination__links"><?php previous_post_link(); ?></div>

@@ -15,8 +15,9 @@ body {
 // Include media query for header and column
 
 .col {
-	width: 78%;
-	margin-left: calc(22% - 1em);
+	width: 90%;
+    margin: 0 auto;
+	//margin-left: calc(22% - 1em);
 }
 
 #page {

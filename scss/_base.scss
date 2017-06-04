@@ -17,23 +17,24 @@ body, input, textarea {
 
 h1, h2, h3 {
 	font-weight: 400;
-	text-transform: uppercase;
 	text-align: center;
 }
 
 h1 {
 	font-family: $stack-serif;
 	font-size: $large;
+	text-transform: uppercase;
 }
 
 h2 {
 	font-family: $stack-san-serif;
 	font-size: $medium;
+	text-transform: uppercase;
 }
 
-h3, h4 {
-	font-family: $stack-san-serif;
-	font-size: $xsmall;
+h3 {
+	font-family: $stack-serif;
+	font-size: $large;
 }
 
 
@@ -50,7 +51,6 @@ ul {
 
 li {
 	font-family: $stack-san-serif;
-	text-transform: uppercase;
 	font-size: $small;
 }
 
