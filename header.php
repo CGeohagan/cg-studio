@@ -37,8 +37,8 @@
 </head>
  
 <body <?php body_class(); ?>>
-	<div id="page">
-		<header class="site-header" role="banner" class="row">            
+	<div id="page" class="scene_element scene_element--marginin">
+		<header class="site-header scene_element scene_element--fadein" role="banner" class="row">            
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
 				<?php bloginfo('name'); ?>
 			</a>

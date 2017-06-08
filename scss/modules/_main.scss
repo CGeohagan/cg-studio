@@ -74,7 +74,9 @@
 		font-size: $large;
 		font-style: italic;
 		margin: 1em 0;
+		opacity: 0;
 		text-align: center;
+		transform: translateY(100%);
 		width: 60%;
 	}
 }
@@ -121,44 +123,60 @@
 	position: relative;
 	width: 90%;
 
+	&__content {
+		@include clearfix;
+	}
+
 	&__text {
-		background: rgba(255,255,255,.9);
-		border-bottom: 3px solid $black;
-		border-top: 3px solid $black;
+		background: rgba(255,255,255,.8);
+		border-bottom: 4px solid $black;
 		float: left;
 		@include clearfix;
 		padding: 3em 2em;
 		position: relative;
-		width: 400px;
+		width: 38%;
 		z-index: 1;
 
 		h3 {
-			padding: .5em;
+			padding: .5em 0;
+		}
+
+		h4 {
+			bottom: -70px;
+			left: -100px;
+			position: absolute;
+			transform: rotate(-90deg);
 		}
 
 		p {
 			font-style: italic;
-			padding: .5em;
-			text-align: center;
+			font-size: $medium;
+			padding: .5em 0;
 		}
 	}
 
-	&__link {
+	&__links {
+		display: flex;
 		font-family: $stack-san-serif;
-		font-size: $xsmall;
+		font-size: $small;
 		font-weight: 100;
-		margin: .6em auto;
+		justify-content: center;
+		margin: 1.5em auto;
 		text-align: center;
 		text-transform: uppercase;
+		width: 60%;
+
+		a {
+			padding: 2.5em;
+		}
 	}
 
 
 
 	&__figure {
-		box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 5px 10px rgba(0,0,0,.05);
-		position: absolute;
-		right: 0;
-		top: -20px;
+		@include clearfix;
+		float: right;
+		width: 60%;
 	}
 
 }
@@ -167,11 +185,20 @@
 
 	.item__text {
 		float: right;
+
+		h3, p {
+			text-align: right;
+		}
+
+		h4 {
+			left: inherit;
+			right: -100px;
+			transform: rotate(90deg);
+		}
 	}
 
 	.item__figure {
-		left: 0;
-		right: inherit;
+		float: left;
 	}
 
 }

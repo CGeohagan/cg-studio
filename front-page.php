@@ -7,8 +7,8 @@
 
 get_header(); ?>
 
-<div class="border-top"></div>
-<div class="border-bottom"></div>
+<div class="border-top scene_element scene_element--bordertop"></div>
+<div class="border-bottom scene_element scene_element--borderbottom"></div>
 
 <main id="main" role="main" class="col">
 
@@ -18,7 +18,7 @@ get_header(); ?>
     		<h1 class="hero__title"><?php bloginfo('name'); ?></h1>
     		<?php get_template_part( 'assets/images/logo-foliage.svg' );
                     ?>		
-        <p class="hero__text"><?php the_field('tagline_text'); ?></p>
+        <p class="hero__text scene_element scene_element--fadeinup"><?php the_field('tagline_text'); ?></p>
       </section>
 
       <section id="work" class="chapter">
@@ -32,14 +32,20 @@ get_header(); ?>
         <?php if ($query->have_posts()) : while ($query->have_posts() ) : $query->the_post(); ?>
 
           <section class="item">
-            <div class="item__text">             
-              <h3><?php the_title(); ?></h3>
-              <?php the_field('description'); ?>
-              <a href="<?php the_permalink(); ?>" class="item__link">View Details</a>
+            <div class="item__content">
+              <div class="item__text scene_element scene_element--fadeinup">             
+                <h3><?php the_title(); ?></h3>
+                <?php the_field('description'); ?>
+                <h4><?php the_field('category'); ?></h4>
+              </div>
+              <figure class="item__figure scene_element scene_element--fadein">
+                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a>
+              </figure>
             </div>
-            <figure class="item__figure">
-              <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a>
-            </figure>
+            <div class="item__links">
+              <a href="<?php the_permalink(); ?>">Details</a>
+              <a href="<?php the_field('link'); ?>">Visit Site</a>
+            </div>
           </section>
 
         <?php endwhile; endif; ?>
