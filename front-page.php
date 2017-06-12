@@ -14,49 +14,51 @@ get_header(); ?>
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-    	<section id="home" class="hero">
+    	<section id="home" class="chapter hero visible" data-color="#d5dddf">
     		<h1 class="hero__title"><?php bloginfo('name'); ?></h1>
     		<?php get_template_part( 'assets/images/logo-foliage.svg' );
                     ?>		
-        <p class="hero__text scene_element scene_element--fadeinup"><?php the_field('tagline_text'); ?></p>
+        <p class="hero__text fadeinup active"><?php the_field('tagline_text'); ?></p>
       </section>
 
-      <section id="work" class="chapter">
-        <h2 class="chapter__heading">Work</h2>
+      <section id="work" class="chapter" data-color="#f3eeeb">
+        <section id="work__column">
+          <h2 class="chapter__heading">Work</h2>
 
-        <?php
-          $args = array( 'post_type' => 'portfolio');
-          $query = new WP_Query( $args );
-        ?>
+          <?php
+            $args = array( 'post_type' => 'portfolio');
+            $query = new WP_Query( $args );
+          ?>
 
-        <?php if ($query->have_posts()) : while ($query->have_posts() ) : $query->the_post(); ?>
+          <?php if ($query->have_posts()) : while ($query->have_posts() ) : $query->the_post(); ?>
 
-          <section class="item">
-            <div class="item__content">
-              <div class="item__text scene_element scene_element--fadeinup">             
-                <h3><?php the_title(); ?></h3>
-                <?php the_field('description'); ?>
-                <h4><?php the_field('category'); ?></h4>
+            <section class="item">
+              <div class="item__content">
+                <div class="item__text fadeinup">             
+                  <h3><?php the_title(); ?></h3>
+                  <?php the_field('description'); ?>
+                  <h4><?php the_field('category'); ?></h4>
+                </div>
+                <figure class="item__figure scene_element scene_element--fadein">
+                  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a>
+                </figure>
               </div>
-              <figure class="item__figure scene_element scene_element--fadein">
-                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a>
-              </figure>
-            </div>
-            <div class="item__links">
-              <a href="<?php the_permalink(); ?>">Details</a>
-              <a href="<?php the_field('link'); ?>">Visit Site</a>
-            </div>
-          </section>
+              <div class="item__links">
+                <a href="<?php the_permalink(); ?>">Details</a>
+                <a href="<?php the_field('link'); ?>">Visit Site</a>
+              </div>
+            </section>
 
-        <?php endwhile; endif; ?>
+          <?php endwhile; endif; ?>
+        </section>
 
       </section>
 
-      <section id="services" class="chapter">
+      <section id="services" class="chapter" data-color="#fae8da">
         <h2 class="chapter__heading">Services</h2>
       </section>
 
-      <section id="about" class="chapter">
+      <section id="about" class="chapter" data-color="#d5dddf">
         <h2 class="chapter__heading">About</h2>
         <div class="about__section">
           <ul class="list">           
@@ -95,7 +97,7 @@ get_header(); ?>
         </div>
       </section>
 
-      <section id="etcetera" class="chapter">
+      <section id="etcetera" class="chapter" data-color="#f3eeeb">
         <h2 class="chapter__heading">Etcetera</h2>
       </section>
 

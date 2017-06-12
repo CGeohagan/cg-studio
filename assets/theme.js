@@ -1,6 +1,9 @@
 jQuery(document).ready(function($){
 	// script goes here
 
+
+	/* Scripts for changing color for different sections during scroll */
+
 	var page = document.querySelector('#page');
 	var work = document.querySelector('#work');
 	var services = document.querySelector('#services');
@@ -14,7 +17,7 @@ jQuery(document).ready(function($){
 		if (scrollTop  >= workOffset && scrollTop <= serviceOffset) {
 			page.style.backgroundColor = '#f3eeeb';
 		} else if (scrollTop >= serviceOffset) {
-			page.style.backgroundColor = '#F7E6E3';
+			page.style.backgroundColor = '#FAE8DA';
 		} else {
 			page.style.backgroundColor = '#d5dddf';
 		}
@@ -23,5 +26,13 @@ jQuery(document).ready(function($){
 
 	// Check for a better way to set this function
 	$(window).scroll(colorSlide);
+
+
+
+	/* GSAP Animations */
+
+	// 1. Check when animated 
+
+	TweenMax.from(".logo", 2, {x:600, rotation:360, scale:0.5, ease:back.easeOut});
 
 });

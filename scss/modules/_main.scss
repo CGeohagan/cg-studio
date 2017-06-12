@@ -74,9 +74,7 @@
 		font-size: $large;
 		font-style: italic;
 		margin: 1em 0;
-		opacity: 0;
 		text-align: center;
-		transform: translateY(100%);
 		width: 60%;
 	}
 }
@@ -85,10 +83,12 @@
 
 /* Chapter */
 
-.chapter {
+.chapter:not(:first-child) {
 	padding-top: 4.5em;
 	margin: 20px 0 100px;
+}
 
+.chapter {
 	&__heading {
   display: table;
   white-space: nowrap;
@@ -119,8 +119,10 @@
 
 .item {
 	@include clearfix;
-	margin: 180px 0;
+	padding: 180px 0;
 	position: relative;
+	opacity: 0;
+	transform: translateY(100%);
 	width: 90%;
 
 	&__content {

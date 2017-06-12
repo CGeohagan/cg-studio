@@ -35,13 +35,17 @@ svg {
 
 /* Scene Transition */
 
+
+
 // Basic styles for an animated element
 
 .scene_element {
 	animation-duration: .4s;
-	transition-timing-function: ease-out;
+	transition-timing-function: ease-in;
 	animation-fill-mode: both;
 }
+
+
 
 // An element that fades in
 
@@ -63,11 +67,14 @@ svg {
 	animation-name: fadeInRight;
 }
 
+
+
 // An element that margin increases 
 
 .scene_element--marginin {
 	animation-name: marginIn;
 }
+
 
 
 
@@ -89,7 +96,7 @@ svg {
 	
 	0% {
 		opacity: 0;
-		transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 50%, 0);
 	}
 
 	100% {

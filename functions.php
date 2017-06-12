@@ -82,16 +82,16 @@ function cg_studio_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 	// vendor scripts
-//	wp_enqueue_script(
-//		'vendor',
-//		get_template_directory_uri() . '/assets/vendor/newscript.js',
-//		array('jquery')
-//	);
+	wp_enqueue_script(
+		'greensock',
+		'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js',
+		array('jquery'), '1.0', true
+	);
 //	theme scripts
 	wp_enqueue_script(
 		'theme-init',
-		get_template_directory_uri() . '/assets/theme.js',
-		array('jquery')
+		get_template_directory_uri() . '/assets/js/theme.js',
+		array('jquery'), '1.0', true
 	);
 }    
 add_action('wp_enqueue_scripts', 'cg_studio_scripts');

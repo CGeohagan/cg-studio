@@ -1,13 +1,17 @@
-var gulp      = require('gulp'),
-    sass     = require('gulp-sass'),
-    cache = require('gulp-cache'),
+var gulp         = require('gulp'),
+    babelify     = require('babelify'),
+    browserify   = require('browserify'),
+    buffer       = require('vinyl-buffer'),
+    source       = require('vinyl-source-stream'),
+    sass         = require('gulp-sass'),
+    cache        = require('gulp-cache'),
     autoprefixer = require('gulp-autoprefixer'),
-    cleancss    = require('gulp-clean-css'),
-    eslint  = require('gulp-eslint'),
-    image = require('gulp-image'),
-    pump = require('pump'),
-    sourcemaps = require('gulp-sourcemaps'),
-    uglify = require('gulp-uglify');
+    cleancss     = require('gulp-clean-css'),
+    eslint       = require('gulp-eslint'),
+    image        = require('gulp-image'),
+    pump         = require('pump'),
+    sourcemaps   = require('gulp-sourcemaps'),
+    uglify       = require('gulp-uglify');
 
 gulp.task('styles', function(){
     return gulp.src('scss/*.scss')
@@ -19,15 +23,27 @@ gulp.task('styles', function(){
         .pipe(gulp.dest(''));
 });
 
-gulp.task('compress', function (cb) {
-  pump([
-        gulp.src('assets/development/js/*.js'),
-        uglify(),
-        gulp.dest('assets/js')
-    ],
-    cb
-  );
+gulp.task('build', function() {
+    return browserify({entries: './assets/development/js/theme.js', debug: true})
+        .transform('babelify', { presets: ['es2015']})
+        .bundle()
+        .pipe(source('theme.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('./assets/js'));
 });
+
+// gulp.task('compress', function (cb) {
+//   pump([
+//         gulp.src('assets/development/js/*.js'),
+//         uglify(),
+//         gulp.dest('assets/js')
+//     ],
+//     cb
+//   );
+// });
 
 // Check on settings due to error messages.
 // gulp.task('image', function() {
@@ -70,5 +86,8 @@ gulp.task('watch', function() {
     // Watch .scss files
     gulp.watch('scss/*.scss', ['styles']);
     gulp.watch('scss/**/*.scss', ['styles']);
+
+    // Watch .js files
+    gulp.watch('assets/development/js/*.js', ['build']);
  
 });
