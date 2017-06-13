@@ -121,12 +121,16 @@
 	@include clearfix;
 	padding: 180px 0;
 	position: relative;
-	opacity: 0;
-	transform: translateY(100%);
 	width: 90%;
 
 	&__content {
 		@include clearfix;
+	}
+
+	&__text, 
+	&__figure {
+		opacity: 0;
+		transform: translateY(100%);
 	}
 
 	&__text {
@@ -172,8 +176,6 @@
 			padding: 2.5em;
 		}
 	}
-
-
 
 	&__figure {
 		@include clearfix;
