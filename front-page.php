@@ -7,8 +7,8 @@
 
 get_header(); ?>
 
-<div class="border-top scene_element scene_element--bordertop"></div>
-<div class="border-bottom scene_element scene_element--borderbottom"></div>
+<div class="border-top"></div>
+<div class="border-bottom"></div>
 
 <main id="main" role="main" class="col">
 
@@ -18,44 +18,59 @@ get_header(); ?>
     		<h1 class="hero__title"><?php bloginfo('name'); ?></h1>
     		<?php get_template_part( 'assets/images/logo-foliage.svg' );
                     ?>		
-        <p class="hero__text fadeinup active"><?php the_field('tagline_text'); ?></p>
+        <p class="hero__text fadeinup">
+          <span><?php the_field('tagline_text_1'); ?></span><br/>
+          <span><?php the_field('tagline_text_2'); ?></span>
+        </p>
       </section>
 
-      <section id="work" class="chapter" data-color="#f3eeeb">
-        <section id="work__column">
-          <h2 class="chapter__heading">Work</h2>
+    <?php endwhile; // end of the loop. ?>
 
-          <?php
-            $args = array( 'post_type' => 'portfolio');
-            $query = new WP_Query( $args );
-          ?>
+    <section id="work" class="chapter" data-color="#f3eeeb">
+      <section id="work__column">
+        <h2 class="chapter__heading">Work</h2>
 
-          <?php if ($query->have_posts()) : while ($query->have_posts() ) : $query->the_post(); ?>
+        <?php
+          $args = array( 'post_type' => 'portfolio');
+          $query = new WP_Query( $args );
+        ?>
 
-            <section class="item">
-              <div class="item__content">
-                <div class="item__text fadeinup">             
-                  <h3><?php the_title(); ?></h3>
-                  <?php the_field('description'); ?>
-                  <h4><?php the_field('category'); ?></h4>
-                </div>
-                <figure class="item__figure scene_element scene_element--fadein">
-                  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a>
-                </figure>
+        <?php if ($query->have_posts()) : while ($query->have_posts() ) : $query->the_post(); ?>
+
+          <section class="item">
+            <div class="item__content">
+              <div class="item__text">             
+                <h3><?php the_title(); ?></h3>
+                <?php the_field('description'); ?>
+                <h4><?php the_field('category'); ?></h4>
               </div>
-              <div class="item__links">
-                <a href="<?php the_permalink(); ?>">Details</a>
-                <a href="<?php the_field('link'); ?>">Visit Site</a>
-              </div>
-            </section>
+              <figure class="item__figure">
+                <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('large'); ?></a>
+              </figure>
+            </div>
+            <div class="item__links">
+              <a href="<?php the_permalink(); ?>">Details</a>
+              <a href="<?php the_field('link'); ?>">Visit Site</a>
+            </div>
+          </section>
 
-          <?php endwhile; endif; ?>
-        </section>
-
+        <?php endwhile; endif; ?>
       </section>
 
-      <section id="services" class="chapter" data-color="#fae8da">
+    </section>
+
+    <?php while ( have_posts() ) : the_post(); ?>
+
+      <section id="services" class="chapter" data-color="#FAE8DA">
         <h2 class="chapter__heading">Services</h2>
+        <?php get_template_part( 'assets/images/ferns.svg' );
+                    ?>
+        <p class="banner"><?php the_field('services_banner'); ?></p>
+        <ul class="services__list">
+          <li><h4>First</h4><p><?php the_field('services_1'); ?></p></li>
+          <li><h4>Second</h4><p><?php the_field('services_2'); ?></p></li>
+          <li><h4>Third</h4><p><?php the_field('services_3'); ?></p></li>
+        </ul>
       </section>
 
       <section id="about" class="chapter" data-color="#d5dddf">
@@ -100,7 +115,6 @@ get_header(); ?>
       <section id="etcetera" class="chapter" data-color="#f3eeeb">
         <h2 class="chapter__heading">Etcetera</h2>
       </section>
-
 
     <?php endwhile; // end of the loop. ?>
 
