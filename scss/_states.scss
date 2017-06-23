@@ -23,21 +23,29 @@ svg {
 	}
 }
 
+button {
+	@include transition(background-color)
+}
 
 
-/* Scene Transition */
+
+/* Color Transition */
 
 #page {
 	@include transition(background-color);
 }
 
-// Basic styles for an animated element
 
-.marginin {
-	animation-duration: .4s;
-	transition-timing-function: ease-in;
-	animation-fill-mode: both;
-	animation-name: marginIn;
+
+/* Margin Transition */
+
+@media (min-width: $m) {
+	.marginin {
+		animation-duration: .4s;
+		transition-timing-function: ease-in;
+		animation-fill-mode: both;
+		animation-name: marginIn;
+	}
 }
 
 
@@ -51,11 +59,50 @@ svg {
 	}
 
 	100% {
-		margin: 2em;
+		margin: 2.2em;
 	}
 
 }
 
+
+
+/* Mobile Menu */
+
+@media (max-width: $m) {
+
+	.menu {
+		display: none;
+		
+		a {
+			opacity: 0;
+		}
+	}
+
+	.mobile-menu {
+		display: flex;
+		font-family: $stack-san-serif;
+	}
+
+	.is-menu-active {
+		background-color: $blush;
+		display: flex;
+		flex-direction: column;
+		left: 0;
+		height: 100vh;
+		padding-top: 3em;
+		position: fixed;
+		top: 0;		
+		width: 100vw;
+		z-index: 99999;
+
+		a {
+			font-family: $stack-serif;
+			font-size: $large;
+			margin: 4px;
+		}
+
+	}
+}
 
 
 

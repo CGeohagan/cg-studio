@@ -1,34 +1,52 @@
 /*      HEADER 
  ********************/
 
+.site-header {
+ 	display: flex;
+ 	justify-content: space-between;
+ 	position: fixed;
+ 	top: 0;
+ 	width: 100%;
+ 	z-index: 10000;
+}
+
+@media (min-width: $m) {
+	.site-header {
+		width: calc(100% - 4em);
+	}
+}
+
 .logo,
 .access {
 	display: flex;
-	position: fixed;
-	top: 0;
 }
 
 .logo {
 	color: $dark-grey;
 	font-family: $stack-san-serif;
-	left: 2.5em;
-	z-index: 10000;
 }
 
 .access {
 	display: flex;
 	justify-content: center;
-	right: 2.5em;
 	text-align: center;
-	z-index: 9999;
 }
 
 .menu {
 	display: flex;
+
+	a {
+		opacity: 1;
+	}
+}
+
+.mobile-menu {
+	display: none;
 }
 
 .site-header {
 	a {
+		display: block;
 		color: $dark-grey;
 		margin: .6em 1em;
 

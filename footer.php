@@ -8,12 +8,11 @@
  */
 ?>
 
-<footer id="footer" role="contentinfo" class="row">
-	<div class="copyright" class="container">
-		&copy; <?php echo date( 'Y' ); echo '&nbsp;'; echo bloginfo( 'name' ); ?><br>
-		Site by <a href="designerURI" target="_blank" rel="nofollow">themeDesigner</a> &amp;
-		<a href="authorURI" target="_blank" rel="nofollow">themeAuthor</a>
-	</div>
+<footer id="footer" role="contentinfo" class="footer">
+	<div class="copyright">
+        &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>	        
+  </div>
+  <p>made with &#9829; by<a href="http://cgeohagan.github.io" target="_blank" rel="nofollow"> Colleen Geohagan</a></p>
 </footer><!-- #colophon -->
 </div><!-- #page -->
 

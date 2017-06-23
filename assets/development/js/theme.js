@@ -1,5 +1,24 @@
 jQuery(document).ready(function($){
 // script goes here
+	
+
+
+	/* Menu Scripts */
+
+	const mobileMenu = document.querySelector('.mobile-menu');
+	const menu = document.querySelector('.menu');
+	const menuLinks = document.querySelectorAll('.menu a');
+
+	mobileMenu.addEventListener('click', function() {
+		menu.classList.add('is-menu-active');
+		TweenMax.staggerFromTo(menuLinks, .6, {opacity:0}, {opacity:1}, .2);
+	});
+
+	for (const menuLink of menuLinks) {
+		menuLink.addEventListener('click', function() {
+			menu.classList.remove('is-menu-active');
+		});
+	}
 
 
 
@@ -9,31 +28,31 @@ jQuery(document).ready(function($){
 	const chapters = document.querySelectorAll('.chapter');
 	const services = document.querySelectorAll('#services');
 	const servicesList = document.querySelector('.services__list');
+	const singleFernLeaves = document.querySelectorAll('.ferns-full path');
 
 
 
 	/* GSAP Animations */
 
-	// Animations that are called when screen loads
+	// Animations that are called when home page or portfolio page loads
+	TweenMax.staggerFrom('.site-header a', .6, {opacity:0, ease:Power2.easeIn, delay: .2}, .2);
 
-	TweenMax.staggerFrom('.site-header a', .8, {opacity:0, ease:Power2.easeIn, delay: .4}, .2);
+	// Function for animations that are called when home page loads
+	function homePageAnimations() {
+		const fadeInUp = document.querySelectorAll('.fadeinup span');
+		TweenMax.staggerFrom(fadeInUp, .8, {opacity:0, y:500, ease:Power2.easeIn, delay:.4}, .2);
 
-	const fadeInUp = document.querySelectorAll('.fadeinup span');
-	TweenMax.staggerFrom(fadeInUp, .8, {opacity:0, y:500, ease:Power2.easeIn, delay:.4}, .2);
-
-	const whiteFlowers = document.querySelectorAll('.white-flower');
-	const fernLeaves = document.querySelectorAll('.fern path');
-	const pinkFlowers = document.querySelectorAll('.pink-flower');
-
-	TweenMax.staggerTo(fernLeaves, .5, {fill:'#fff'}, .05);
+		const fernLeaves = document.querySelectorAll('.fern path');
+		TweenMax.staggerTo(fernLeaves, .5, {fill:'#fff'}, .05);
+	}
 
 	// Function for animations that are called when item is visible
 	function visibleFadeInUp(item, itemChildren, transformY) {
 		if (!item.classList.contains('animated')) {
 			if (item.classList.contains('visible')) {
-				TweenMax.staggerFromTo(itemChildren, .6, 
+				TweenMax.staggerFromTo(itemChildren, .7, 
 					{opacity:0, y:transformY}, 
-					{opacity:1, y:0}, .4);
+					{opacity:1, y:0}, .5);
 				item.classList.add('animated');
 			}
 		}
@@ -87,21 +106,45 @@ jQuery(document).ready(function($){
 		}
 	}
 
-	// Function to animated services list items
+	// Function to animate services list items
 	function animateServicesList() {
 		isVisible(services);
 		const serviceItems = servicesList.children;
-		const singleFernLeaves = document.querySelectorAll('.ferns-full path');
-		TweenMax.staggerTo(singleFernLeaves, .6, {fill:'#fff'}, .1);
+		TweenMax.staggerTo(singleFernLeaves, 1, {fill:'#fff'}, .1);
 		visibleFadeInUp(services[0], serviceItems, 0);
 	}
 
-	// Everytime the user scrolls, this function is called to check if the sections and items are visible
-	$(window).scroll(function() {
-		colorChapters();
-		animateItems();	
-		animateServicesList();
-	});
+	// Function to animate details on individual details text on portfolio page 
+	function animateDetailsText() {
+		const details = document.querySelectorAll('.details');
+		TweenMax.from(details, .7, {height:0});
+		const detailsText = details[0].children[0].children;
+		const detailsLeft = document.querySelector('.details__text-left');
+		const detailsRight = document.querySelector('.details__text-right');
+		const pinkButton = document.querySelector('.pink-button');
+		const detailsArray = [detailsLeft, detailsRight, pinkButton];
+		TweenMax.staggerFromTo(detailsArray, .7, {opacity:0, delay:.7}, {opacity:1, delay:.7}, .5);
+	}
 
+	
+
+	/* Functions for checking which page is loaded, and then loading corresponding animations */
+
+	// Check if on the front page by checking for items array
+	if (items.length !== 0) {
+		// If on the front page, call the animations for the page load
+		homePageAnimations();
+		// If on the front page, everytime the user scrolls, this function is called to check if the sections and items are visible
+		$(window).scroll(function() {		
+				colorChapters();
+				animateItems();	
+				animateServicesList();
+		});
+	} else {
+		animateDetailsText();
+	}
+
+
+	
 });
 

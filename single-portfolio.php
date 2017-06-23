@@ -9,19 +9,19 @@
 get_header(); ?>
 
 
-<main id="main" class="col" role="main">
+<main id="main" role="main">
 
-  <article class="portfolio__item col-right">
+  <article class="portfolio__item">
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-    	<?php the_post_thumbnail('large'); ?>
-
-      <div class="details">
+    	<div class="details">
 	      <div class="details__text">
 	      	<div class="details__text-left">
 						<h1><?php the_title(); ?></h1>
-						<h3><?php the_field('category'); ?></h3>
+						<h4><?php the_field('category'); ?></h4>
+						<?php get_template_part( 'assets/images/ferns.svg' );
+                    ?>
 					</div>
 					<div class="details__text-right">
 						<p><?php the_field('details'); ?></p>
@@ -30,32 +30,33 @@ get_header(); ?>
 				<button class="pink-button"><a href="<?php the_field('link'); ?>">Visit</a></button>
 			</div>
 
-			<div class="wrap">
+			<div class="portfolio__container">
 
-					<?php if( have_rows('iphone_mockups') ): ?>
+	    	<?php the_post_thumbnail('large'); ?>
 
-    				<?php while ( have_rows('iphone_mockups') ) : the_row();
+				<div class="wrap">
 
-							// vars
-							$image = get_sub_field('iphone');
-							?>
+						<?php if( have_rows('iphone_mockups') ): ?>
 
-							<div class="tile">
-								<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-							</div>
+	    				<?php while ( have_rows('iphone_mockups') ) : the_row();
 
-						<?php endwhile; ?>
+								// vars
+								$image = get_sub_field('iphone');
+								?>
 
-					<?php endif; ?>
+								<div class="tile">
+									<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+								</div>
+
+							<?php endwhile; ?>
+
+						<?php endif; ?>
+
+				</div>
+
+				<div class="boxshadow"><?php the_field('images'); ?></div>
 
 			</div>
-
-			<div><?php the_field('images'); ?></div>
-
-			<div class="pagination">
-    		<div class="pagination__links"><?php previous_post_link(); ?></div>
-    		<div class="pagination__links"><?php next_post_link(); ?></div>
-  		</div>
 
     <?php endwhile; // end of the loop. ?>
 

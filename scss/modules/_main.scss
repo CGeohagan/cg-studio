@@ -15,6 +15,7 @@
 	}
 
 	a {
+		display: block;
 		font-family: $stack-san-serif;
 		text-transform: uppercase;
 		padding: .5em;
@@ -36,13 +37,21 @@
 }
 
 .border-top {
-	border-top: 2em solid $white;
+	border-top: 2.5em solid $white;
+	box-shadow: 0 2px 2px rgba(0,0,0,.1), 0 2px 2px rgba(0,0,0,.05);
 	top: 0;
 }
 
-.border-bottom {
-	border-bottom: 2em solid $white;
-	bottom: 0;
+@media (min-width: $m) {
+	.border-bottom {
+		border-bottom: 2.2em solid $white;
+		bottom: 0;
+	}
+
+	.border-top {
+		border-top: 2.2em solid $white;
+		box-shadow: none;
+	}
 }
 
 
@@ -55,9 +64,16 @@
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	min-height: calc(100vh - 4em);
+	min-height: 100vh;
 	width: 100%;
+}
 
+@media (min-width: $m) {
+	.hero,
+	.intro,
+	.chapter {
+		min-height: calc(100vh - 4em);
+	}
 }
 
 .hero, 
@@ -71,11 +87,17 @@
 	}
 
 	&__text {
-		font-size: $large;
+		font-size: $medium;
 		font-style: italic;
 		margin: 1em 0;
 		text-align: center;
 		width: 60%;
+	}
+}
+
+@media (min-width: $s) {
+	.hero__text {
+		font-size: $large;
 	}
 }
 
@@ -121,10 +143,10 @@
 	@include clearfix;
 	padding: 80px 0;
 	position: relative;
-	width: 90%;
 
 	&__content {
 		@include clearfix;
+		margin: 0 10%;
 	}
 
 	&__text, 
@@ -208,6 +230,7 @@
 }
 
 
+
 /* List */
 
 .list {
@@ -249,7 +272,7 @@
 /* Logo SVG */
 
 .logo-foliage {
-	width: 320px;
+	width: 280px;
 	
 	.fern {
 		fill: none;
@@ -271,6 +294,22 @@
 	}
 }
 
+@media (min-width: $m) {
+	.logo-foliage {
+		width: 320px;
+	}
+}
+
+
+
+/* Individual Fern SVG */
+
+.ferns-full {
+	width: 100px;
+	height: 50px;
+	margin: .5em 0;
+}
+
 
 
 /* Services */
@@ -280,11 +319,6 @@
 	font-style: italic;
 	margin: 1em;
 	text-align: center;
-}
-
-.ferns-full {
-	width: 90px;
-	height: 50px;
 }
 
 .services__list {
@@ -309,30 +343,48 @@
 }
 
 
+
 /* Portfolio */
 
 .portfolio__item {
-	padding: 2em 3em;
+	margin: 0 auto 4em;
 
 	img {
-		margin: 1em 0;
+		margin: 1.5em 0;
 	}
+
+	.boxshadow img {
+		box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 5px 10px rgba(0,0,0,.05);
+	}
+
+}
+
+.portfolio__container {
+	width: 75%;
+	margin: 0 auto;
 }
 
 .details {
 	align-items: center;
-	background-color: $light-cream;
+	background-color: $oatmeal;
 	display: flex;
 	flex-direction: column;
 	padding: 100px 1em;
 
+	h4 {
+		text-align: center;
+	}
+
 	&__text {
 		display: flex;
+		width: 80%;
 
 		&-left, &-right {
+			align-items: center;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			opacity: 0;
 		}
 
 		&-left {
@@ -362,10 +414,11 @@
 .wrap {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
 }
 
 .tile {
 	margin: 2em 1em;
-	width: 250px;
+	width: 200px;
 }
 

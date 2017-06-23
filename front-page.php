@@ -27,15 +27,14 @@ get_header(); ?>
     <?php endwhile; // end of the loop. ?>
 
     <section id="work" class="chapter" data-color="#f3eeeb">
-      <section id="work__column">
-        <h2 class="chapter__heading">Work</h2>
+      <h2 class="chapter__heading">Work</h2>
 
-        <?php
-          $args = array( 'post_type' => 'portfolio');
-          $query = new WP_Query( $args );
-        ?>
+      <?php
+        $args = array( 'post_type' => 'portfolio');
+        $query = new WP_Query( $args );
+      ?>
 
-        <?php if ($query->have_posts()) : while ($query->have_posts() ) : $query->the_post(); ?>
+      <?php if ($query->have_posts()) : while ($query->have_posts() ) : $query->the_post(); ?>
 
           <section class="item">
             <div class="item__content">
@@ -54,14 +53,13 @@ get_header(); ?>
             </div>
           </section>
 
-        <?php endwhile; endif; ?>
-      </section>
+      <?php endwhile; endif; ?>
 
     </section>
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-      <section id="services" class="chapter" data-color="#FAE8DA">
+      <section id="services" class="chapter" data-color="#fae8da">
         <h2 class="chapter__heading">Services</h2>
         <?php get_template_part( 'assets/images/ferns.svg' );
                     ?>

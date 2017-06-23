@@ -43,6 +43,31 @@
 				<?php bloginfo('name'); ?>
 			</a>
 			<nav class="access" role="navigation">
-				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+                <div class="mobile-menu">
+                    <a href="#">Menu</a>
+                </div>
+				<?php 
+                if ( is_front_page() ) {
+                    // If on the home page, use primary menu
+                    wp_nav_menu( array( 'theme_location' => 'primary' ) ); 
+                } else { 
+                    // If on portfolio page, use portfolio menu
+                ?>
+                    <ul class="menu">                          
+                        <li>
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                Back to Home
+                            </a>
+                        </li>
+                        <li>
+                            <?php previous_post_link( '%link','Next Project' ); ?>
+                        </li>
+                        <li>
+                            <?php next_post_link( '%link','Next Project' ); ?>
+                        </li>
+                    </ul>
+                <?php    
+                }
+                ?>
 			</nav><!-- #access -->
 		</header>
