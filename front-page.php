@@ -15,11 +15,13 @@ get_header(); ?>
     <?php while ( have_posts() ) : the_post(); ?>
 
     	<section id="home" class="chapter hero visible" data-color="#d5dddf">
-    		<h1 class="hero__title"><?php bloginfo('name'); ?></h1>
-    		<?php get_template_part( 'assets/images/logo-foliage.svg' );
-                    ?>		
+    		<div class="hero__wrapper">
+          <h1 class="hero__title"><?php bloginfo('name'); ?></h1>
+      		<?php get_template_part( 'assets/images/logo-foliage.svg' );
+                      ?>
+        </div>		
         <p class="hero__text fadeinup">
-          <span><?php the_field('tagline_text_1'); ?></span><br/>
+          <span><?php the_field('tagline_text_1'); ?></span>
           <span><?php the_field('tagline_text_2'); ?></span>
         </p>
       </section>
@@ -48,7 +50,7 @@ get_header(); ?>
               </figure>
             </div>
             <div class="item__links">
-              <a href="<?php the_permalink(); ?>">Details</a>
+              <a href="<?php the_permalink(); ?>">See Details</a>
               <a href="<?php the_field('link'); ?>">Visit Site</a>
             </div>
           </section>
@@ -108,10 +110,6 @@ get_header(); ?>
           </ul>
 
         </div>
-      </section>
-
-      <section id="etcetera" class="chapter" data-color="#f3eeeb">
-        <h2 class="chapter__heading">Etcetera</h2>
       </section>
 
     <?php endwhile; // end of the loop. ?>

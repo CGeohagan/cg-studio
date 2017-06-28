@@ -34,6 +34,8 @@ get_header(); ?>
 
 	    	<?php the_post_thumbnail('large'); ?>
 
+				<div class="boxshadow"><?php the_field('images'); ?></div>
+
 				<div class="wrap">
 
 						<?php if( have_rows('iphone_mockups') ): ?>
@@ -54,7 +56,12 @@ get_header(); ?>
 
 				</div>
 
-				<div class="boxshadow"><?php the_field('images'); ?></div>
+				<button class="simple-button">
+					<h2>
+						<?php previous_post_link( '%link','Next Project' ); ?>
+						<?php next_post_link( '%link','Next Project' ); ?>
+					</h2>
+				</button>
 
 			</div>
 

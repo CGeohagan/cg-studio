@@ -11,7 +11,7 @@ jQuery(document).ready(function($){
 
 	mobileMenu.addEventListener('click', function() {
 		menu.classList.add('is-menu-active');
-		TweenMax.staggerFromTo(menuLinks, .6, {opacity:0}, {opacity:1}, .2);
+		TweenMax.staggerFromTo(menuLinks, .6, {opacity:0}, {opacity:1}, .1);
 	});
 
 	for (const menuLink of menuLinks) {
@@ -40,7 +40,7 @@ jQuery(document).ready(function($){
 	// Function for animations that are called when home page loads
 	function homePageAnimations() {
 		const fadeInUp = document.querySelectorAll('.fadeinup span');
-		TweenMax.staggerFrom(fadeInUp, .8, {opacity:0, y:500, ease:Power2.easeIn, delay:.4}, .2);
+		TweenMax.staggerFrom(fadeInUp, .8, {opacity:0, ease:Power2.easeIn, delay:.4}, .2);
 
 		const fernLeaves = document.querySelectorAll('.fern path');
 		TweenMax.staggerTo(fernLeaves, .5, {fill:'#fff'}, .05);
@@ -117,7 +117,7 @@ jQuery(document).ready(function($){
 	// Function to animate details on individual details text on portfolio page 
 	function animateDetailsText() {
 		const details = document.querySelectorAll('.details');
-		TweenMax.from(details, .7, {height:0});
+		TweenMax.fromTo(details, .5, {transform:'scaleY(0)'}, {transform:'scaleY(1)'});
 		const detailsText = details[0].children[0].children;
 		const detailsLeft = document.querySelector('.details__text-left');
 		const detailsRight = document.querySelector('.details__text-right');

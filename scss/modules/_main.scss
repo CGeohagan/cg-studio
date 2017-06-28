@@ -3,7 +3,7 @@
 
 
 
-/* Button */
+/* Buttons */
 
 .pink-button {
 	background-color: $white;
@@ -19,6 +19,18 @@
 		font-family: $stack-san-serif;
 		text-transform: uppercase;
 		padding: .5em;
+	}
+}
+
+.simple-button {
+	background: none;
+	outline: none;
+	margin: 3em auto 1em;
+
+	a {
+		color: $dark-grey;
+		display: block;
+		font-family: $stack-serif;
 	}
 }
 
@@ -82,6 +94,14 @@
 }
 
 .hero {
+	&__wrapper,
+	&__text {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
 	&__title {
 		font-size: $xlarge;
 	}
@@ -91,14 +111,24 @@
 		font-style: italic;
 		margin: 1em 0;
 		text-align: center;
-		width: 60%;
+		width: 90%;
 	}
 }
 
 @media (min-width: $s) {
-	.hero__text {
-		font-size: $large;
+	.hero {
+
+		&__wrapper,
+		&__text {
+			font-size: $large;
+			min-height: auto;
+		}
+
+		&__text {
+			width: 60%;
+		}
 	}
+
 }
 
 
@@ -145,8 +175,10 @@
 	position: relative;
 
 	&__content {
+		display: flex;
+		flex-direction: column;
 		@include clearfix;
-		margin: 0 10%;
+		margin: 0 2%;
 	}
 
 	&__text, 
@@ -157,23 +189,22 @@
 
 	&__text {
 		background: rgba(255,255,255,.8);
-		border-bottom: 4px solid $black;
-		float: left;
+		border-right: 4px solid $black;
 		@include clearfix;
-		padding: 3em 2em;
+		margin: 2em .2em;
+		padding: 1.5em;
 		position: relative;
-		width: 38%;
+		text-align: right;
 		z-index: 1;
 
 		h3 {
-			padding: .5em 0;
+			padding: 2px 0;
 		}
 
 		h4 {
-			bottom: -70px;
-			left: -100px;
 			position: absolute;
-			transform: rotate(-90deg);
+			top: -2.5em;
+			left: 1em;
 		}
 
 		p {
@@ -192,41 +223,81 @@
 		margin: 1.5em auto;
 		text-align: center;
 		text-transform: uppercase;
-		width: 60%;
+		width: 100%;
 
 		a {
-			padding: 2.5em;
+			padding: 2em;
 		}
 	}
 
 	&__figure {
 		@include clearfix;
-		float: right;
-		width: 60%;
+		margin: 0 auto;
+		width: 90%;
 	}
 
 }
 
-.item:nth-child(odd) {
+@media (min-width: $l) {
 
-	.item__text {
-		float: right;
-
-		h3, p {
-			text-align: right;
+	.item {
+		&__content {
+			display: block;
 		}
 
-		h4 {
-			left: inherit;
-			right: -100px;
-			transform: rotate(90deg);
+		&__text {
+			border-right: none;
+			border-bottom: 4px solid $black;
+			float: left;
+			padding: 3em 2em;
+			margin: 0;
+			text-align: left;
+			width: 43%;
+
+			h4 {
+				bottom: -30px;
+				left: -100px;
+				top: inherit;
+				transform: rotate(-90deg);
+			}
+
+		}
+
+		&__links {
+			width: 60%;
+		}
+
+		&__figure {
+			float: right;
+			width: 55%;
+		}
+
+		h3 {
+			padding: .5em 0;
+		}
+
+	}
+
+	.item:nth-child(odd) {
+		.item__text {
+			float: right;
+
+			h3, p {
+				text-align: right;
+			}
+
+			h4 {
+				left: inherit;
+				right: -100px;
+				transform: rotate(90deg);
+			}
+		}
+
+		.item__figure {
+			float: left;
 		}
 	}
-
-	.item__figure {
-		float: left;
-	}
-
+	
 }
 
 
@@ -254,7 +325,7 @@
 
 	p {
 		font-size: $medium;
-		width: 60%;
+		width: 90%;
 	}
 
 	svg {
@@ -265,6 +336,16 @@
 	width: 120px;
 	}
 
+}
+
+@media (min-width: $m) {
+	.list {
+
+		p {
+			width: 60%;
+		}
+
+	}
 }
 
 
@@ -315,22 +396,29 @@
 /* Services */
 
 .banner {
-	font-size: $large;
+	font-size: $medium;
 	font-style: italic;
 	margin: 1em;
 	text-align: center;
 }
 
+@media (min-width: $m) {
+	.banner {
+		font-size: $large;
+	}
+}
+
 .services__list {
 	display: flex;
+	flex-direction: column;
 	padding: 1em;
 	justify-content: space-between;
 
 	li {
 		border-left: 3px solid $black;
-		margin: 1em;
+		margin: 1em 0;
 		opacity: 0;		
-		padding: 0 1em;
+		padding-left: 1em;
 		text-align: left;
 		transform: translateY(50%);
 	}
@@ -340,6 +428,18 @@
 		font-size: $medium;
 	}
 
+}
+
+@media (min-width: $m) {
+	.services__list {
+		flex-direction: row;
+
+		li {
+			margin: 1em;
+			padding: 0 1em;
+		}
+
+	}
 }
 
 
@@ -360,6 +460,8 @@
 }
 
 .portfolio__container {
+	display: flex;
+	flex-direction: column;
 	width: 75%;
 	margin: 0 auto;
 }
@@ -369,7 +471,9 @@
 	background-color: $oatmeal;
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 	padding: 100px 1em;
+	transform-origin: top;
 
 	h4 {
 		text-align: center;
@@ -377,6 +481,7 @@
 
 	&__text {
 		display: flex;
+		flex-direction: column;
 		width: 80%;
 
 		&-left, &-right {
@@ -388,10 +493,10 @@
 		}
 
 		&-left {
-			border-right: 2px solid $dark-grey;
+			border-top: 2px solid $dark-grey;
 			padding: 1.5em 0;
 			text-align: left;
-			width: 40%;
+			width: 100%;
 
 			h1 {
 				margin-bottom: .2em;
@@ -399,8 +504,8 @@
 		}
 
 		&-right {
-			padding-left: 5%;
-			width: 55%;
+			text-align: center;
+			width: 100%;
 
 			p {
 				font-family: $stack-serif;
@@ -411,14 +516,49 @@
 	}
 }
 
+@media (min-width: $m) {
+	
+	.details {
+
+		&__text {
+			flex-direction: row;
+
+			&-left {
+				border-top: none;
+				border-right: 2px solid $dark-grey;
+				width: 40%;
+			}
+
+			&-right {
+				width: 55%;
+				padding-left: 5%;
+				text-align: left;
+			}
+		}
+
+	}
+
+}
+
 .wrap {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
 }
 
 .tile {
-	margin: 2em 1em;
-	width: 200px;
+	width: 55%;
+}
+
+@media (min-width: $s) {
+
+	.tile {
+		width: 30%;
+	}
+
+	.wrap {
+		justify-content: space-between;
+	}
+
 }
 
