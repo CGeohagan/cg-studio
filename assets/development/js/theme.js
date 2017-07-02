@@ -3,7 +3,9 @@ jQuery(document).ready(function($){
 	
 
 
-	/* Menu Scripts */
+	/********************
+		 	 Menu Scripts 
+	*********************/
 
 	const mobileMenu = document.querySelector('.mobile-menu');
 	const menu = document.querySelector('.menu');
@@ -22,6 +24,10 @@ jQuery(document).ready(function($){
 
 
 
+	/*********************
+		Loading Animations
+	*********************/
+
 	/*  Defining the items and chapters */
 
 	const items = document.querySelectorAll('.item');
@@ -29,8 +35,6 @@ jQuery(document).ready(function($){
 	const services = document.querySelectorAll('#services');
 	const servicesList = document.querySelector('.services__list');
 	const singleFernLeaves = document.querySelectorAll('.ferns-full path');
-
-
 
 	/* GSAP Animations */
 
@@ -57,8 +61,6 @@ jQuery(document).ready(function($){
 			}
 		}
 	}
-
-
 
 	/* Functions for animating items as they come on screen */
 
@@ -126,24 +128,140 @@ jQuery(document).ready(function($){
 		TweenMax.staggerFromTo(detailsArray, .7, {opacity:0, delay:.7}, {opacity:1, delay:.7}, .5);
 	}
 
-	
 
-	/* Functions for checking which page is loaded, and then loading corresponding animations */
+
+	/*********************
+		Scripts for slider
+	*********************/
+
+	/* Add in functionality to automatically update the width */
+
+	function sliderScripts() {
+		// Select all of the style items
+		const slider = document.querySelector('.slider');
+		const sliderItems = document.querySelectorAll('.slider__item');
+
+		// Determine the number of list items using the length property 
+		const listNum = sliderItems.length;
+		const lastSliderNum = -75 * (listNum - 1);
+
+		// Set the list width to listNum * 75% view width
+		slider.style.width = listNum * 75 + 'vw';
+
+		// Select the previous and next buttons to navigate slider
+		const prevButton = document.querySelector('.prev-button');
+		const nextButton = document.querySelector('.next-button');
+		console.log(prevButton);
+
+		// Create function for setting transformX value when slider moves
+		function setTransform(transformX) {
+			slider.style.transform = 'translateX(' + transformX + 'vw)';
+		}
+
+		// Create functions for adding and removing function class
+		function addActiveSlider() {
+			currentSliderItem.classList.add('is-slider-active');
+		}
+
+		function removeActiveSlider() {
+			currentSliderItem.classList.remove('is-slider-active');
+		}
+
+		// Set the currrentSliderItem to the first item and add the active class
+		const firstSliderItem = slider.firstElementChild;
+		const lastSliderItem = slider.lastElementChild;
+		var currentSliderItem = firstSliderItem;
+		firstSliderItem.classList.add('is-slider-active');
+
+		// Set the transform value for the list when the page loads
+		// This will set the page on the first slider
+		var transformXValue = 12.5;
+		setTransform(transformXValue);
+
+		// When you click on the next button
+		nextButton.addEventListener('click', function() {
+			if (currentSliderItem === lastSliderItem) {
+				// If the current item is the last one
+				// 1) Move active class to the first item
+				removeActiveSlider();
+				currentSliderItem = firstSliderItem;
+				addActiveSlider();
+				// 2) Set the transformX value to the beginning 
+				transformXValue = 12.5;
+				setTransform(transformXValue);
+			} else {
+				// If the current item is not the last one
+				// 1) Move active class to the next list item
+				removeActiveSlider();
+				currentSliderItem = currentSliderItem.nextElementSibling;
+				addActiveSlider();
+				// 2) Subtract 75vw from the transformX value
+				transformXValue = transformXValue - 75;
+				setTransform(transformXValue);
+			}
+		});
+
+		// When you click on the previous button
+		prevButton.addEventListener('click', function() {
+			if (currentSliderItem === firstSliderItem) {
+				// If the current item is the first one
+				// 1) Move active class to the last item
+				removeActiveSlider();
+				currentSliderItem = lastSliderItem;
+				addActiveSlider();
+				// 2) Set the transformX value to the end
+				transformXValue = 12.5 + lastSliderNum;
+				setTransform(transformXValue);
+			} else {
+				// If the current item is not the first one
+				// 1) Move active class to the previous list item
+				removeActiveSlider();
+				currentSliderItem = currentSliderItem.previousElementSibling;
+				addActiveSlider();
+				// 2) Add 75vw to the transformX value
+				transformXValue = transformXValue + 75;
+				setTransform(transformXValue);
+			}
+		});
+	}
+
+
+
+	/***********************************************
+		 Functions for checking which page is loaded
+		 and running corresponding functions
+	 ***********************************************/
 
 	// Check if on the front page by checking for items array
 	if (items.length !== 0) {
 		// If on the front page, call the animations for the page load
 		homePageAnimations();
 		// If on the front page, everytime the user scrolls, this function is called to check if the sections and items are visible
-		$(window).scroll(function() {		
+
+		// Using variable didScroll to check whether the user scrolled
+		var didScroll = false;
+
+		// When the user scrolls, didScroll variable becomes true
+		window.onscroll = scrollFunction;
+		function scrollFunction() {
+			didScroll = true;
+		}
+
+		// Setting a time interval
+		setInterval(function() {
+			// To check if the user scrolled
+			if(didScroll) {
+				didScroll = false;
 				colorChapters();
 				animateItems();	
 				animateServicesList();
-		});
+			}
+		}, 100);		
+
 	} else {
 		animateDetailsText();
+		sliderScripts();
 	}
-
 
 	
 });

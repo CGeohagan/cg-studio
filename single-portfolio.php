@@ -31,13 +31,33 @@ get_header(); ?>
 			</div>
 
 			<div class="portfolio__container">
-
 	    	<?php the_post_thumbnail('large'); ?>
+			</div>
 
-				<div class="boxshadow"><?php the_field('images'); ?></div>
+			<div class="slider boxshadow">
+				<?php if( have_rows('screenshots') ): ?>
 
+  				<?php while ( have_rows('screenshots') ) : the_row();
+
+						// vars
+						$image = get_sub_field('screenshot_image');
+						?>
+
+						<div class="slider__item">
+							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+						</div>
+
+					<?php endwhile; ?>
+
+				<?php endif; ?>			
+			</div>
+			<div class="slider__buttons">
+				<button class="prev-button">That way</button>
+				<button class="next-button">This way</button>
+			</div>
+
+			<div class="portfolio__container">
 				<div class="wrap">
-
 						<?php if( have_rows('iphone_mockups') ): ?>
 
 	    				<?php while ( have_rows('iphone_mockups') ) : the_row();
@@ -53,7 +73,6 @@ get_header(); ?>
 							<?php endwhile; ?>
 
 						<?php endif; ?>
-
 				</div>
 
 				<button class="simple-button">

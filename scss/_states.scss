@@ -25,6 +25,7 @@ svg {
 
 button {
 	@include transition(background-color)
+	@include transition(color)
 }
 
 
@@ -105,5 +106,23 @@ button {
 }
 
 
+
+/* Slider States */
+
+.slider__item {
+	opacity: .5;
+	transform: scale(.9);
+	@include transition(opacity);
+	@include transition(transform);
+}
+
+.is-slider-active {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.slider {
+	@include transition(transform);
+}
 
 
