@@ -1,4 +1,4 @@
-<?php
+e4<?php
 /**
  * Template Name: Front Page
  *
@@ -110,6 +110,12 @@ get_header(); ?>
           </ul>
 
         </div>
+      </section>
+
+      <section id="contact" class="chapter" data-color="#fae8da">
+        <h2 class="chapter__heading">Contact</h2>
+        <p class="banner"><?php the_field('contact_banner'); ?></p>
+        <?php wpforms_display( 68 ) ?>
       </section>
 
     <?php endwhile; // end of the loop. ?>

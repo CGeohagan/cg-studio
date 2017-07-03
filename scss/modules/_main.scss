@@ -5,13 +5,18 @@
 
 /* Buttons */
 
-.pink-button {
+.pink-button, 
+div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 	background-color: $white;
-	margin-top: 5em;
+	border: 1px solid $link;
+	color: $link;
+	font-family: $stack-san-serif;
+	text-transform: uppercase;
 	width: 100px;
 	
 	&:hover {
 		background-color: $rouge;
+		color: $hover;
 	}
 
 	a {
@@ -24,7 +29,6 @@
 
 .simple-button {
 	background: none;
-	outline: none;
 	margin: 3em auto 1em;
 
 	a {
@@ -46,7 +50,6 @@
 		color: $text;
 		font-family: $stack-san-serif;
 		text-transform: uppercase;
-		outline: none;
 		&:hover {
 			color: $hover;
 		}
@@ -337,7 +340,7 @@
 	}
 
 	&__num {
-		font-size: $xxlarge;
+		font-size: $xlarge;
 		padding: 0 .5em;
 		border-top: 2px solid $black;
 	}
@@ -362,6 +365,10 @@
 
 		p {
 			width: 60%;
+		}
+
+		&__num {
+			font-size: $xxlarge;
 		}
 
 	}
@@ -509,6 +516,7 @@
 	&__text {
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 5em;
 		width: 80%;
 
 		&-left, &-right {
@@ -610,3 +618,20 @@
 	left: 0;
 }
 
+
+
+/* Form Styles */
+
+.wpforms-container-full.contact {
+	width: 80%;
+
+	.wpforms-form input.wpforms-field-medium {
+		max-width: 100%;
+	}
+}
+
+@media (min-width: $s) {
+	.wpforms-container-full.contact {
+		width: 60%;
+	}
+}

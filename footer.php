@@ -12,7 +12,18 @@
 	<div class="copyright">
         &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>	        
   </div>
-  <p>made with &#9829; by<a href="http://cgeohagan.github.io" target="_blank" rel="nofollow"> Colleen Geohagan</a></p>
+    <div class="social-footer">
+  	<a href="https://www.instagram.com/colleengeohagan/?hl=en" target="_blank">
+      <?php get_template_part( 'assets/images/instagram.svg' ); ?>
+    </a>
+    <a href="https://www.pinterest.com/colleenb/" target="_blank">
+      <?php get_template_part( 'assets/images/pinterest.svg' ); ?>
+    </a>
+    <a href="mailto:cgstudioco@gmail.com" target="_blank">
+      <?php get_template_part( 'assets/images/mail.svg' ); ?>
+    </a>
+  </div>
+  <p>made with &#9829; by<a href="https://cgstudio.co" target="_blank" rel="nofollow"> CG Studio</a></p>
 </footer><!-- #colophon -->
 </div><!-- #page -->
 

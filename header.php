@@ -19,7 +19,7 @@
 
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
     
     <!-- favicon & links -->
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-icon">
@@ -42,6 +42,7 @@
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
 				<?php bloginfo('name'); ?>
 			</a>
+            <a class="screen-reader-text" href="#main">Skip to content</a>
 			<nav class="access" role="navigation">
                 <div class="mobile-menu">
                     <a href="#">Menu</a>

@@ -2,7 +2,9 @@
  **************/
  
 .footer {
+	align-items: center;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	margin: 0 1em;
 	padding-bottom: 1em;
@@ -12,12 +14,43 @@
 		font-family: $stack-san-serif;
 		padding: 2px;
 	}
+
+	.copyright {
+		display: none;
+		width: 214px;
+	}
+
+	a:hover,
+	a:focus {
+		color: $oatmeal;
+	}
+
+	.social-footer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin: .8em;
+		width: 120px;
+		svg {
+			height: 20px;
+			width: 20px;
+
+			path {
+				fill: $dark-grey;
+				stroke: none;
+			}
+		}
+	}
+
 }
 
-@media (max-width: $m) {
+@media screen and (min-width: $s) {
 	.footer {
-		align-items: center;
-		flex-direction: column;
+		flex-direction: row;
+
+		.copyright {
+			display: block;
+		}
 	}
 
 }

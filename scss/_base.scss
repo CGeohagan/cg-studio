@@ -83,21 +83,6 @@ button {
 	}
 }
 
-button {
-	outline: 1px solid $link;
-}
-
-
-
-/* Assistive text */
-.assistive-text {
-	clip: rect(1px, 1px, 1px, 1px);
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-}
-
 
 
 /* Images */
@@ -107,6 +92,14 @@ img {
 	height: auto;
 	max-width: 100%;
 	width: 100%;
+}
+
+
+
+/* Clearfix */
+
+.clearfix {
+	@include clearfix
 }
 
 

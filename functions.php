@@ -87,7 +87,13 @@ function cg_studio_scripts() {
 		'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js',
 		array('jquery'), '1.0', true
 	);
-//	theme scripts
+	// smart-outline scripts
+	wp_enqueue_script(
+		'smart-outline',
+		'https://cdn.rawgit.com/ambassify/smart-outline/master/main.js',
+		array('jquery'), '1.0', true
+	);
+	// theme scripts
 	wp_enqueue_script(
 		'theme-init',
 		get_template_directory_uri() . '/assets/js/theme.js',
