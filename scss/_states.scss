@@ -49,10 +49,6 @@ button {
 	}
 }
 
-
-
-/* Keyframes */
-
 @keyframes marginIn {
 	
 	0% {
@@ -107,6 +103,52 @@ button {
 
 
 
+/* Scroll Text */
+
+.scroll-text {
+	display: none;
+}
+
+@media (min-width:$m) {
+
+	.scroll-text {
+		display: block;
+	}
+
+}
+
+.scroll-text {
+
+	p {
+		position: relative;
+	}
+
+	p:after {
+		animation: 1s ease 1s 10 underline;
+		background-color: $rouge;
+		bottom: 0;
+		content: '';
+		height: 2px;
+		left: 0;
+		position: absolute;
+	}
+
+}
+
+@keyframes underline {
+
+	0% {
+		width: 0%;
+	}
+
+	100% {
+		width: 100%;
+	}
+
+}
+
+
+
 /* Slider States */
 
 .slider__item {
@@ -124,5 +166,44 @@ button {
 .slider {
 	@include transition(transform);
 }
+
+
+
+/* Form States */
+
+
+input:not([type='submit']),
+textarea {
+	border-bottom: $dark-grey 1px solid;
+}
+
+.wpcf7-form-control-wrap {
+	display: block;
+	position: relative;
+
+	&:hover,
+	&:focus {
+
+		&:after {
+			width: 100%;
+		}
+	}
+}
+
+.wpcf7-form-control-wrap:after {
+	@include transition(width)
+	content: '';
+	background-color: $rouge;
+	position: absolute;
+	height: 2px;
+	left: 0;
+	right: 0;
+	width: 0%;
+	bottom: 0;
+	z-index: 2;
+}
+
+
+
 
 

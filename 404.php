@@ -7,21 +7,13 @@
 
 get_header(); ?>
 
-<section id="primary" role="main" class="col pull-left span_8">
-
-	<article id="post-0" class="post error404 not-found">
-		<header class="entry-header">
-			<h1 class="entry-title"><?php _e( 'Uh oh!', 'cg-studio' ); ?></h1>
-		</header>
-
-		<div class="entry-content">
-			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps a search would help?', 'cg-studio' ); ?></p>
-
-			<?php get_search_form(); ?>
-
-		</div><!-- .entry-content -->
-	</article><!-- #post-0 -->
-
-</section><!-- #primary -->
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>?>
+<section class="chapter">
+  <h2 class="chapter__heading">OH NO!</h2>
+  <?php get_template_part( 'assets/images/ferns.svg' );
+              ?>
+  <p class="banner">I can't seem to find what you're looking for, but here is a picture of my kitten Catsley Shacklebolt.</p>
+  <figure class="kitten">
+  	<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/catsley.jpg" alt="Catsley the cat"/>
+  </figure>
+</section>
+<?php get_footer(); ?>

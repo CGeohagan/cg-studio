@@ -51,6 +51,17 @@
                 if ( is_front_page() ) {
                     // If on the home page, use primary menu
                     wp_nav_menu( array( 'theme_location' => 'primary' ) ); 
+                ?>
+                <?php 
+                } elseif ( is_404() ) { ?>
+                    <ul class="menu">                          
+                        <li>
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                Back to Home
+                            </a>
+                        </li>
+                    </ul>
+                <?php  
                 } else { 
                     // If on portfolio page, use portfolio menu
                 ?>

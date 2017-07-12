@@ -32,6 +32,7 @@ jQuery(document).ready(function($){
 
 	const items = document.querySelectorAll('.item');
 	const chapters = document.querySelectorAll('.chapter');
+	const scrollText = document.querySelector('.scroll-text');
 	const services = document.querySelectorAll('#services');
 	const servicesList = document.querySelector('.services__list');
 	const singleFernLeaves = document.querySelectorAll('.ferns-full path');
@@ -45,6 +46,7 @@ jQuery(document).ready(function($){
 	function homePageAnimations() {
 		const fadeInUp = document.querySelectorAll('.fadeinup span');
 		TweenMax.staggerFrom(fadeInUp, .8, {opacity:0, ease:Power2.easeIn, delay:.4}, .2);
+		TweenMax.from(scrollText, .8, {opacity:0, ease:Power2.easeIn, delay:.8});
 
 		const fernLeaves = document.querySelectorAll('.fern path');
 		TweenMax.staggerTo(fernLeaves, .5, {fill:'#fff'}, .05);
@@ -251,6 +253,7 @@ jQuery(document).ready(function($){
 			// To check if the user scrolled
 			if(didScroll) {
 				didScroll = false;
+				scrollText.style.display = "none";
 				colorChapters();
 				animateItems();	
 				animateServicesList();

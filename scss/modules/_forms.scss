@@ -1,8 +1,28 @@
+/* FORM STYLES 
+*****************/
+
+/* Form Styles */
+
+.wpcf7 {
+	width: 80%;
+
+	p {
+		margin: 1em 0;
+	}
+}
+
+@media (min-width:$s) {
+	.wpcf7 {
+		width: 60%;
+	}
+}
+
 /* See _mixins.scss for more on this method for handling HTML5 elements */
+
 #{$all-text-inputs}, 
 textarea {
+	background: none;
 	padding: 4px 10px;
-	margin: .5em 0;
 	width: 100%;
 	-webkit-appearance: none;
 }

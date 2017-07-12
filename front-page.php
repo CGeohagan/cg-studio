@@ -1,4 +1,4 @@
-e4<?php
+<?php
 /**
  * Template Name: Front Page
  *
@@ -9,6 +9,9 @@ get_header(); ?>
 
 <div class="border-top"></div>
 <div class="border-bottom"></div>
+<div class="scroll-text">
+  <p>This Way</p>
+</div>
 
 <main id="main" role="main" class="col">
 
@@ -79,7 +82,7 @@ get_header(); ?>
           <ul class="list">           
             <li>
               <span class="list__num">1</span>
-              <p>Hi, I'm Colleen. I'm a <i>(sometimes firey)</i> redhead. When I was a baby, people thought I was Willow from Willow <i>(you know, that Val Kilmer movie.)</i></p>
+              <p>Hi, I'm Colleen. I'm a <i>(sometimes firey)</i> redhead. When I was little, people thought I was the baby from Willow <i>(you know, that Val Kilmer movie.)</i></p>
               <?php get_template_part( 'assets/images/colleen.svg' );
                       ?>
             </li>
@@ -97,13 +100,13 @@ get_header(); ?>
             </li>
             <li>
               <span class="list__num">4</span>
-              <p>I have two cats named Catsley Shacklebolt and Picasso.</p>
+              <p>I have three cats named Picasso, Catsley Shacklebolt, and Purrmione Grainger.</p>
               <?php get_template_part( 'assets/images/cat.svg' );
                       ?>
             </li>
             <li>
               <span class="list__num">5</span>
-              <p>I've worked as an Environmental Engineer for 7 years. You could say I'm a late bloomer, or a late dreamer.</p>
+              <p>I've worked as an Environmental Engineer for 7 years.</p>
               <?php get_template_part( 'assets/images/beaker.svg' );
                       ?>
             </li>
@@ -114,8 +117,10 @@ get_header(); ?>
 
       <section id="contact" class="chapter" data-color="#fae8da">
         <h2 class="chapter__heading">Contact</h2>
-        <p class="banner"><?php the_field('contact_banner'); ?></p>
-        <?php wpforms_display( 68 ) ?>
+        <?php get_template_part( 'assets/images/ferns.svg' );
+                    ?>
+        <div class="banner"><?php the_field('contact_banner'); ?></div>
+        <?php echo do_shortcode( '[contact-form-7 id="74" title="Contact form 1"]' ); ?>
       </section>
 
     <?php endwhile; // end of the loop. ?>

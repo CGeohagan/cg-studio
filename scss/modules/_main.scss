@@ -5,8 +5,7 @@
 
 /* Buttons */
 
-.pink-button, 
-div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
+.pink-button {
 	background-color: $white;
 	border: 1px solid $link;
 	color: $link;
@@ -90,6 +89,17 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 
 
 
+/* Scroll Text */
+
+.scroll-text {
+	bottom: 5em;
+	font-style: italic;
+	position: fixed;
+	right: 3em;
+	transform: rotate(90deg);
+}
+
+
 /* Front Page */
 
 .hero,
@@ -147,7 +157,7 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 		}
 
 		&__text {
-			width: 60%;
+			max-width: 30em;
 		}
 	}
 
@@ -213,7 +223,8 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 		background: rgba(255,255,255,.8);
 		border-right: 4px solid $black;
 		@include clearfix;
-		margin: 2em .2em;
+		margin: 2em auto;
+		max-width: 30em;
 		padding: 1.5em;
 		position: relative;
 		text-align: right;
@@ -231,8 +242,8 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 
 		p {
 			font-style: italic;
-			font-size: $medium;
-			padding: .5em 0;
+			font-size: $small;
+			padding: .4em 0;
 		}
 	}
 
@@ -278,9 +289,13 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 
 			h4 {
 				bottom: -30px;
-				left: -100px;
+				left: -110px;
 				top: inherit;
 				transform: rotate(-90deg);
+			}
+
+			p {
+				font-size: $medium;
 			}
 
 		}
@@ -310,7 +325,7 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 
 			h4 {
 				left: inherit;
-				right: -100px;
+				right: -110px;
 				transform: rotate(90deg);
 			}
 		}
@@ -346,7 +361,7 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 	}
 
 	p {
-		font-size: $medium;
+		font-size: $smedium;
 		width: 90%;
 	}
 
@@ -355,7 +370,7 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 	}
 
 	.eiffel {
-	width: 120px;
+		width: 120px;
 	}
 
 }
@@ -364,7 +379,8 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 	.list {
 
 		p {
-			width: 60%;
+			font-size: $medium;
+			max-width: 26em;
 		}
 
 		&__num {
@@ -425,6 +441,7 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 	font-size: $medium;
 	font-style: italic;
 	margin: 1em;
+	max-width: 25em;
 	text-align: center;
 }
 
@@ -451,7 +468,8 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 
 	p {
 		font-family: $stack-serif;
-		font-size: $medium;
+		font-size: $small;
+		max-width: 22em;
 	}
 
 }
@@ -461,8 +479,8 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 		flex-direction: row;
 
 		li {
-			margin: 1em;
-			padding: 0 1em;
+			margin: .5em;
+			padding: 0 .8em;
 		}
 
 	}
@@ -490,13 +508,13 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 	display: flex;
 	flex-direction: column;
 	width: 80%;
-	margin: 1.5em auto;
+	margin: 2em auto;
 }
 
 @media (min-width: $m) {
 	.portfolio__container {
 		width: 70%;
-		margin: 3em auto;
+		margin: 4.5em auto;
 	}
 }
 
@@ -517,7 +535,7 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 5em;
-		width: 80%;
+		width: 90%;
 
 		&-left, &-right {
 			align-items: center;
@@ -544,8 +562,9 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 
 			p {
 				font-family: $stack-serif;
-				font-size: $medium;
+				font-size: $smedium;
 				font-style: italic;
+				max-width: 24em;
 			}
 		}
 	}
@@ -561,13 +580,18 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 			&-left {
 				border-top: none;
 				border-right: 2px solid $dark-grey;
-				width: 40%;
+				width: 42%;
+				padding-right: 1em;
 			}
 
 			&-right {
-				width: 55%;
-				padding-left: 5%;
+				max-width: 30em;
+				padding-left: 2em;
 				text-align: left;
+
+				p {
+					font-size: $medium;
+				}
 			}
 		}
 
@@ -620,18 +644,12 @@ div.wpforms-container-full .wpforms-form button[type=submit].pink-button {
 
 
 
-/* Form Styles */
+/* Kitten Image */
 
-.wpforms-container-full.contact {
-	width: 80%;
-
-	.wpforms-form input.wpforms-field-medium {
-		max-width: 100%;
-	}
+.kitten {
+	margin: 1em auto;
+	max-width: 640px;
+	width: 50%;
 }
 
-@media (min-width: $s) {
-	.wpforms-container-full.contact {
-		width: 60%;
-	}
-}
+
