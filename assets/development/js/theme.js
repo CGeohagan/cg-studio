@@ -3,6 +3,17 @@ jQuery(document).ready(function($){
 	
 
 
+	/***************************
+		Require babel-polyfill 
+	***************************/
+
+	// Requiring babel-polyfill for some ES6 features in older browsers
+	// Type 'npm install --save babel-polyfill' into terminal first
+
+	require("babel-polyfill");
+
+
+
 	/********************
 		 	 Menu Scripts 
 	*********************/
@@ -16,8 +27,8 @@ jQuery(document).ready(function($){
 		TweenMax.staggerFromTo(menuLinks, .6, {opacity:0}, {opacity:1}, .1);
 	});
 
-	for (const menuLink of menuLinks) {
-		menuLink.addEventListener('click', function() {
+	for (var i = 0; i < menuLinks.length; i++) {
+		menuLinks[i].addEventListener('click', function() {
 			menu.classList.remove('is-menu-active');
 		});
 	}
@@ -28,6 +39,7 @@ jQuery(document).ready(function($){
 		Loading Animations
 	*********************/
 
+
 	/*  Defining the items and chapters */
 
 	const items = document.querySelectorAll('.item');
@@ -36,6 +48,7 @@ jQuery(document).ready(function($){
 	const services = document.querySelectorAll('#services');
 	const servicesList = document.querySelector('.services__list');
 	const singleFernLeaves = document.querySelectorAll('.ferns-full path');
+
 
 	/* GSAP Animations */
 
@@ -58,32 +71,37 @@ jQuery(document).ready(function($){
 			if (item.classList.contains('visible')) {
 				TweenMax.staggerFromTo(itemChildren, .7, 
 					{opacity:0, y:transformY}, 
-					{opacity:1, y:0}, .5);
+					{opacity:.99, y:0}, .5);
 				item.classList.add('animated');
 			}
 		}
 	}
+
 
 	/* Functions for animating items as they come on screen */
 
 	// Function to determine if element is visible in the viewport
 	function isVisible(sections) {
 		// Run this code for every section in sections
-		for (const section of sections) {
+		for (var i = 0; i < sections.length; i++) {
 
 			// Defining the distance scrolled and the distance from the top and bottom of each section
-			const scrollTop = document.body.scrollTop;
-			const sectOffset = section.offsetTop;
-			const secHeight = section.scrollHeight;
-			const secEnd = sectOffset + secHeight;
+
+			// For Chrome, use document.body.scrollTop to find the distance scrolled in pixels
+			var bodyScrollTop = document.body.scrollTop;
+			// For Firefox and IE, use document.documentElement.scrollTop to find the distance scrolled in pixels
+			var docScrollTop = document.documentElement.scrollTop;
+			var sectOffset = sections[i].offsetTop;			
+			var secHeight = sections[i].scrollHeight;
+			var secEnd = sectOffset + secHeight;
 
 			// If the distance scrolled is between the top and bottom of a section, the visible class is added
-			if (scrollTop >= (sectOffset - 140) && scrollTop <= secEnd) {
-				section.classList.add('visible');	
+			if ( (bodyScrollTop >= (sectOffset - 140) && bodyScrollTop <= secEnd) || (docScrollTop >= (sectOffset - 140) && docScrollTop <= secEnd) ){
+				sections[i].classList.add('visible');
 
 			// Else, the visible class is removed		
 			} else {
-				section.classList.remove('visible');
+				sections[i].classList.remove('visible');
 			}
 		}
 	};
@@ -91,11 +109,10 @@ jQuery(document).ready(function($){
 	// Function for changing the colors of the chapters as they are visible
 	function colorChapters() {
 		isVisible(chapters);
-
 		// If the chapter is visible, then the color set for the data attribute is used to change the background color
-		for (const chapter of chapters) {
-			if (chapter.classList.contains('visible')) {
-				const secColor = chapter.dataset.color;
+		for (var i = 0; i < chapters.length; i++) {
+			if (chapters[i].classList.contains('visible')) {
+				var secColor = chapters[i].dataset.color;
 				page.style.backgroundColor = secColor;
 			} 
 		}
@@ -104,9 +121,9 @@ jQuery(document).ready(function($){
 	// Function to animate individual portfolio items as they scroll into screen
 	function animateItems() {
 		isVisible(items);
-		for (const item of items) {
-			const itemChildren = item.firstElementChild.children;
-			visibleFadeInUp(item, itemChildren, 100);
+		for (var i = 0; i < items.length; i++) {
+			var itemChildren = items[i].firstElementChild.children;
+			visibleFadeInUp(items[i], itemChildren, 100);
 		}
 	}
 
@@ -135,6 +152,7 @@ jQuery(document).ready(function($){
 	/*********************
 		Scripts for slider
 	*********************/
+
 
 	/* Add in functionality to automatically update the width */
 
@@ -230,7 +248,6 @@ jQuery(document).ready(function($){
 
 	/***********************************************
 		 Functions for checking which page is loaded
-		 and running corresponding functions
 	 ***********************************************/
 
 	// Check if on the front page by checking for items array
@@ -253,7 +270,7 @@ jQuery(document).ready(function($){
 			// To check if the user scrolled
 			if(didScroll) {
 				didScroll = false;
-				scrollText.style.display = "none";
+				scrollText.style.display = "none";			
 				colorChapters();
 				animateItems();	
 				animateServicesList();
@@ -312,9 +329,9 @@ jQuery(document).ready(function($){
 
 
 
-  /****************************
+  /*****************************
   	Load Smart Outline Scripts
-  ****************************/
+  ******************************/
 
   window.onload = function() {
   	smartOutline.init();

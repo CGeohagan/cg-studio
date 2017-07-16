@@ -22,12 +22,16 @@
     <meta name="viewport" content="width=device-width">
     
     <!-- favicon & links -->
-    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png" type="image/x-icon">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
     <!-- stylesheets are enqueued via functions.php -->
 
     <!-- all other scripts are enqueued via functions.php -->
+    <!-- scripts  -->
+    <script>  
+        document.getElementsByTagName('html')[0].className += ' js';  
+    </script>  
     <!--[if lt IE 9]>
         <script src="<?php echo get_template_directory_uri(); ?>/assets/vendor/html5shiv.js" type="text/javascript"></script>
     <![endif]-->

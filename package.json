@@ -5,17 +5,18 @@
     "main": "gulpfile.js"
   },
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "gulp": "*",
-    "gulp-sass": "*",
+    "gulp-autoprefixer": "*",
     "gulp-cache": "*",
     "gulp-clean-css": "*",
     "gulp-eslint": "*",
     "gulp-image": "*",
-    "pump": "*",
+    "gulp-livereload": "*",
+    "gulp-sass": "*",
     "gulp-sourcemaps": "*",
-    "gulp-autoprefixer": "*",
     "gulp-uglify": "*",
-    "gulp-livereload": "*"
+    "pump": "*"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
