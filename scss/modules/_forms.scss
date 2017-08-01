@@ -22,6 +22,7 @@
 #{$all-text-inputs}, 
 textarea {
 	background: none;
+	border: none;
 	padding: 4px 10px;
 	width: 100%;
 	-webkit-appearance: none;
@@ -38,7 +39,6 @@ input[type=submit] {
 	background-color: $dark-grey;
 	border-radius: 2px;
 	color: $white;
-	float: right;
 	font-family: $stack-san-serif;
 	text-transform: uppercase;
 	padding: 10px 30px;

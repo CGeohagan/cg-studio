@@ -27,8 +27,9 @@ function cg_studio_setup() {
 	// Add default posts and comments RSS feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
 
-	// Add custom nav menu support
+	// Add custom nav menu support for primary and secondary menu
 	register_nav_menu( 'primary', __( 'Primary Menu', 'cg-studio' ) );
+	register_nav_menu( 'secondary', __( 'Secondary Menu', 'cg-studio' ) );
 	
 	// Add featured image support
 	add_theme_support( 'post-thumbnails' );
@@ -107,23 +108,12 @@ add_action('wp_enqueue_scripts', 'cg_studio_scripts');
  ========================== */
 
 function wpb_add_google_fonts() {
-
-    wp_enqueue_style('wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,600|Lato:400,500', false);
+    wp_enqueue_style('wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,600%7cLato:400,500', false);
 }
 
 add_action ('wp_enqueue_scripts', 'wpb_add_google_fonts');
 
 
-
-/* MISC EXTRAS
- ========================== */
- 
-// Comments & pingbacks display template
-include('inc/functions/comments.php');
-
-// Optional Customizations
-// Includes: TinyMCE tweaks, admin menu & bar settings, query overrides
-include('inc/functions/customizations.php');
 
 /**
  * Remove the front-end admin bar for everybody, always

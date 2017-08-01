@@ -14,23 +14,33 @@ get_header(); ?>
 
 	<?php if ( have_posts() ) : ?>
 
-		<?php get_template_part( 'inc/archive-header' ); ?>
+		<?php get_template_part( 'template-parts/archive-header' ); ?>
 
 		<?php /* Start the Loop */ ?>
-		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'content', get_post_format() ); ?>
+		<section class="journal-content">
+			<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php endwhile; ?>
+				<?php get_template_part( 'content', 'noexcerpt' ); ?>
 
-		<?php get_template_part( 'inc/pagination' ); ?>
+			<?php endwhile; ?>
 
-	<?php else : ?>
+			<nav id="nav-below">
+				<?php if( get_previous_posts_link()) : ?>
+					<div class="nav-previous"><?php previous_posts_link( __( 'Older posts', 'cg-studio' ) ); ?></div>
+				<?php endif; ?>
 
-		<?php get_template_part( 'content', 'none' ); ?>
+				<?php if( get_next_posts_link()) : ?>
+					<div class="nav-next"><?php next_posts_link( __( 'Newer posts', 'cg-studio' ) ); ?></div>
+				<?php endif; ?>					
+			</nav><!-- #nav-above -->
+		
+			<?php else : ?>
 
-	<?php endif; ?>
+				<?php get_template_part( 'content', 'none' ); ?>
 
+			<?php endif; ?>
+		</section>
 </section><!-- #primary -->
 
 <?php get_sidebar(); ?>

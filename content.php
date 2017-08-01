@@ -7,27 +7,21 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'cg-studio' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
-		</h1>
-		<span class="entry-date"><?php echo get_the_date(); ?></span>
-	</header><!-- .entry-header -->
+
+	<figure class="entry-thumbnail boxshadow">
+		<?php the_post_thumbnail(); ?>
+		<?php the_category(); ?>
+	</figure>
 
 	<div class="entry-content">
+		<header class="entry-header">
+			<span class="entry-date"><?php echo get_the_date(); ?></span>
+			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'cg-studio' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+			</h1>
+		</header><!-- .entry-header -->	
 		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'cg-studio' ) . '</span>', 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-meta">
-		
-		<?php the_tags( '<div class="post-tags">' . __( 'Tagged: ', 'cg-studio' ) , ', ', '</div>' ); ?>
-		
-		<div class="comments-link">
-			<?php comments_popup_link( 
-				 __( 'Leave a comment', 'cg-studio' ), 
-				 __( '1 comment', 'cg-studio' ), 
-				 __( '% comments', 'cg-studio' ) ); 
-			?>
-		</div>
-	</footer><!-- #entry-meta -->
+	<?php get_template_part( 'template-parts/pagination' ); ?>
+
 </article><!-- #post-<?php the_ID(); ?> -->

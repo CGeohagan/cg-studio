@@ -103,7 +103,41 @@ button {
 
 
 
-/* Scroll Text */
+/* Initial States for Greensock Animations */
+
+// Only include is JavaScript is being used based on the class .js which is added in in the header.php file
+// The following items will initially not be shown so they can transition when scrolled to
+
+.js .item {
+
+	&__text, 
+	&__figure {
+		opacity: 0;
+		transform: translateY(50%);
+	}
+
+}
+
+.js .services__list {
+	
+	li {
+		opacity: 0;
+		transform: translateY(50%);
+	}
+
+}
+
+.js .details__text {
+	
+	&-left, &-right {
+		opacity: 0;
+	}
+
+}
+
+
+
+/* Scroll Text - When user scrolls the text will disappear */
 
 .scroll-text {
 	display: none;
@@ -171,7 +205,6 @@ button {
 
 /* Form States */
 
-
 input:not([type='submit']),
 textarea {
 	border-bottom: $dark-grey 1px solid;
@@ -205,5 +238,17 @@ textarea {
 
 
 
+/* Journal Transitions */
+
+.entry-caption {
+	transform: translateX(-100%);
+	@include transition(transform);
+}
+
+.entry-thumbnail:hover {
+	.entry-caption {
+		transform: translateX(0%);
+	} 
+}
 
 

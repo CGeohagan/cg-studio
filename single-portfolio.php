@@ -27,14 +27,14 @@ get_header(); ?>
 						<p><?php the_field('details'); ?></p>
 					</div>
 				</div>
-				<button class="pink-button"><a href="<?php the_field('link'); ?>">Visit</a></button>
+				<div class="pink-button"><a href="<?php the_field('link'); ?>">Visit</a></div>
 			</div>
 
 			<div class="portfolio__container">
-	    	<?php the_post_thumbnail('large'); ?>
+	    	<figure class="imac"><?php the_post_thumbnail('large'); ?></figure>
 			</div>
 
-			<div class="slider boxshadow">
+			<div class="slider">
 				<?php if( have_rows('screenshots') ): ?>
 
   				<?php while ( have_rows('screenshots') ) : the_row();
@@ -44,7 +44,7 @@ get_header(); ?>
 						?>
 
 						<div class="slider__item">
-							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+							<figure class="slider__image boxshadow"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" /></figure>
 						</div>
 
 					<?php endwhile; ?>
@@ -67,7 +67,7 @@ get_header(); ?>
 								?>
 
 								<div class="tile">
-									<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+									<figure><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" /></figure>
 								</div>
 
 							<?php endwhile; ?>
@@ -75,12 +75,12 @@ get_header(); ?>
 						<?php endif; ?>
 				</div>
 
-				<button class="simple-button">
+				<div class="simple-button">
 					<h2>
-						<?php previous_post_link( '%link','Next Project' ); ?>
+						<?php previous_post_link( '%link','Previous Project' ); ?>
 						<?php next_post_link( '%link','Next Project' ); ?>
 					</h2>
-				</button>
+				</div>
 
 			</div>
 

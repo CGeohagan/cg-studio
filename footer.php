@@ -19,7 +19,7 @@
     <a href="https://www.pinterest.com/colleenb/" target="_blank">
       <?php get_template_part( 'assets/images/pinterest.svg' ); ?>
     </a>
-    <a href="mailto:cgstudioco@gmail.com" target="_blank">
+    <a href="mailto:hello@cgstudio.co" target="_blank">
       <?php get_template_part( 'assets/images/mail.svg' ); ?>
     </a>
   </div>

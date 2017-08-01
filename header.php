@@ -2,7 +2,7 @@
 /**
  * The header template
  *
- * Displays all of the <head> section and everything up till <div id="main">
+ * Displays all of the <head> section and everything up till <main id="main">
  *
  * @package cg_studio
  */
@@ -20,6 +20,7 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="9MktcrdcpOgm-pFAkGwk0T1LOwVc2k8neEfwcaH2THQ" />
     
     <!-- favicon & links -->
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png" type="image/x-icon">
@@ -67,23 +68,10 @@
                     </ul>
                 <?php  
                 } else { 
-                    // If on portfolio page, use portfolio menu
-                ?>
-                    <ul class="menu">                          
-                        <li>
-                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                                Back to Home
-                            </a>
-                        </li>
-                        <li>
-                            <?php previous_post_link( '%link','Next Project' ); ?>
-                        </li>
-                        <li>
-                            <?php next_post_link( '%link','Next Project' ); ?>
-                        </li>
-                    </ul>
-                <?php    
+                    // If not on the front page, use the secondary menu
+                    wp_nav_menu( array( 'theme_location' => 'secondary' ) ); 
                 }
                 ?>
+
 			</nav><!-- #access -->
 		</header>

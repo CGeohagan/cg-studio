@@ -82,7 +82,7 @@ get_header(); ?>
           <ul class="list">           
             <li>
               <span class="list__num">1</span>
-              <p>Hi, I'm Colleen. I'm a <i>(sometimes firey)</i> redhead. When I was little, people thought I was the baby from Willow <i>(you know, that Val Kilmer movie.)</i></p>
+              <p>Hi, I'm Colleen. I'm a <i>(sometimes fiery)</i> redhead. When I was little, people thought I was the baby from Willow <i>(you know, that Val Kilmer movie.)</i></p>
               <?php get_template_part( 'assets/images/colleen.svg' );
                       ?>
             </li>

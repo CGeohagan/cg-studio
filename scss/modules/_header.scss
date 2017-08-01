@@ -12,7 +12,9 @@
 
 @media (min-width: $m) {
 	.site-header {
-		width: calc(100% - 4em);
+		left: 0;
+		padding: 0 2em;
+		width: 100%;
 	}
 }
 

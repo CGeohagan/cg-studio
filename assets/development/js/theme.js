@@ -3,9 +3,9 @@ jQuery(document).ready(function($){
 	
 
 
-	/***************************
+	/******************************
 		Require babel-polyfill 
-	***************************/
+	******************************/
 
 	// Requiring babel-polyfill for some ES6 features in older browsers
 	// Type 'npm install --save babel-polyfill' into terminal first
@@ -14,9 +14,9 @@ jQuery(document).ready(function($){
 
 
 
-	/********************
-		 	 Menu Scripts 
-	*********************/
+	/***********************
+		Menu Scripts 
+	***********************/
 
 	const mobileMenu = document.querySelector('.mobile-menu');
 	const menu = document.querySelector('.menu');
@@ -35,9 +35,9 @@ jQuery(document).ready(function($){
 
 
 
-	/*********************
+	/************************
 		Loading Animations
-	*********************/
+	************************/
 
 
 	/*  Defining the items and chapters */
@@ -53,23 +53,23 @@ jQuery(document).ready(function($){
 	/* GSAP Animations */
 
 	// Animations that are called when home page or portfolio page loads
-	TweenMax.staggerFrom('.site-header a', .6, {opacity:0, ease:Power2.easeIn, delay: .2}, .2);
+	TweenMax.staggerFrom('.site-header a', .4, {opacity:0, ease:Power2.easeIn, delay: .1}, .1);
 
 	// Function for animations that are called when home page loads
 	function homePageAnimations() {
 		const fadeInUp = document.querySelectorAll('.fadeinup span');
-		TweenMax.staggerFrom(fadeInUp, .8, {opacity:0, ease:Power2.easeIn, delay:.4}, .2);
-		TweenMax.from(scrollText, .8, {opacity:0, ease:Power2.easeIn, delay:.8});
+		TweenMax.staggerFrom(fadeInUp, .4, {opacity:0, ease:Power2.easeIn, delay:.2}, .1);
+		TweenMax.from(scrollText, .4, {opacity:0, ease:Power2.easeIn, delay:.6});
 
 		const fernLeaves = document.querySelectorAll('.fern path');
-		TweenMax.staggerTo(fernLeaves, .5, {fill:'#fff'}, .05);
+		TweenMax.staggerTo(fernLeaves, .4, {fill:'#fff'}, .05);
 	}
 
 	// Function for animations that are called when item is visible
 	function visibleFadeInUp(item, itemChildren, transformY) {
 		if (!item.classList.contains('animated')) {
 			if (item.classList.contains('visible')) {
-				TweenMax.staggerFromTo(itemChildren, .7, 
+				TweenMax.staggerFromTo(itemChildren, .4, 
 					{opacity:0, y:transformY}, 
 					{opacity:.99, y:0}, .5);
 				item.classList.add('animated');
@@ -112,7 +112,7 @@ jQuery(document).ready(function($){
 		// If the chapter is visible, then the color set for the data attribute is used to change the background color
 		for (var i = 0; i < chapters.length; i++) {
 			if (chapters[i].classList.contains('visible')) {
-				var secColor = chapters[i].dataset.color;
+				var secColor = chapters[i].getAttribute('data-color');
 				page.style.backgroundColor = secColor;
 			} 
 		}
@@ -122,8 +122,8 @@ jQuery(document).ready(function($){
 	function animateItems() {
 		isVisible(items);
 		for (var i = 0; i < items.length; i++) {
-			var itemChildren = items[i].firstElementChild.children;
-			visibleFadeInUp(items[i], itemChildren, 100);
+			var itemFirstChildren = items[i].firstElementChild.children;
+			visibleFadeInUp(items[i], itemFirstChildren, 100);
 		}
 	}
 
@@ -136,22 +136,23 @@ jQuery(document).ready(function($){
 	}
 
 	// Function to animate details on individual details text on portfolio page 
+	const details = document.querySelectorAll('.details');
+
 	function animateDetailsText() {
-		const details = document.querySelectorAll('.details');
-		TweenMax.fromTo(details, .5, {transform:'scaleY(0)'}, {transform:'scaleY(1)'});
+		TweenMax.fromTo(details, .4, {transform:'scaleY(0)'}, {transform:'scaleY(1)'});
 		const detailsText = details[0].children[0].children;
 		const detailsLeft = document.querySelector('.details__text-left');
 		const detailsRight = document.querySelector('.details__text-right');
 		const pinkButton = document.querySelector('.pink-button');
 		const detailsArray = [detailsLeft, detailsRight, pinkButton];
-		TweenMax.staggerFromTo(detailsArray, .7, {opacity:0, delay:.7}, {opacity:1, delay:.7}, .5);
+		TweenMax.staggerFromTo(detailsArray, .4, {opacity:0, delay:.4}, {opacity:1, delay:.4}, .4);
 	}
 
 
 
-	/*********************
+	/************************
 		Scripts for slider
-	*********************/
+	************************/
 
 
 	/* Add in functionality to automatically update the width */
@@ -163,10 +164,10 @@ jQuery(document).ready(function($){
 
 		// Determine the number of list items using the length property 
 		const listNum = sliderItems.length;
-		const lastSliderNum = -75 * (listNum - 1);
+		const lastSliderNum = -70 * (listNum - 1);
 
 		// Set the list width to listNum * 75% view width
-		slider.style.width = listNum * 75 + 'vw';
+		slider.style.width = listNum * 70 + 'vw';
 
 		// Select the previous and next buttons to navigate slider
 		const prevButton = document.querySelector('.prev-button');
@@ -194,7 +195,7 @@ jQuery(document).ready(function($){
 
 		// Set the transform value for the list when the page loads
 		// This will set the page on the first slider
-		var transformXValue = 12.5;
+		var transformXValue = 15;
 		setTransform(transformXValue);
 
 		// When you click on the next button
@@ -206,7 +207,7 @@ jQuery(document).ready(function($){
 				currentSliderItem = firstSliderItem;
 				addActiveSlider();
 				// 2) Set the transformX value to the beginning 
-				transformXValue = 12.5;
+				transformXValue = 15;
 				setTransform(transformXValue);
 			} else {
 				// If the current item is not the last one
@@ -214,8 +215,8 @@ jQuery(document).ready(function($){
 				removeActiveSlider();
 				currentSliderItem = currentSliderItem.nextElementSibling;
 				addActiveSlider();
-				// 2) Subtract 75vw from the transformX value
-				transformXValue = transformXValue - 75;
+				// 2) Subtract 70vw from the transformX value
+				transformXValue = transformXValue - 70;
 				setTransform(transformXValue);
 			}
 		});
@@ -229,7 +230,7 @@ jQuery(document).ready(function($){
 				currentSliderItem = lastSliderItem;
 				addActiveSlider();
 				// 2) Set the transformX value to the end
-				transformXValue = 12.5 + lastSliderNum;
+				transformXValue = 15 + lastSliderNum;
 				setTransform(transformXValue);
 			} else {
 				// If the current item is not the first one
@@ -237,8 +238,8 @@ jQuery(document).ready(function($){
 				removeActiveSlider();
 				currentSliderItem = currentSliderItem.previousElementSibling;
 				addActiveSlider();
-				// 2) Add 75vw to the transformX value
-				transformXValue = transformXValue + 75;
+				// 2) Add 70vw to the transformX value
+				transformXValue = transformXValue + 70;
 				setTransform(transformXValue);
 			}
 		});
@@ -246,9 +247,9 @@ jQuery(document).ready(function($){
 
 
 
-	/***********************************************
+	/**************************************************
 		 Functions for checking which page is loaded
-	 ***********************************************/
+	**************************************************/
 
 	// Check if on the front page by checking for items array
 	if (items.length !== 0) {
@@ -277,7 +278,7 @@ jQuery(document).ready(function($){
 			}
 		}, 100);		
 
-	} else {
+	} else if (details.length !== 0) {
 		// If not on the home page, you are on the portfolio page
 		// Run the portfolio page scripts
 		animateDetailsText();
@@ -286,45 +287,45 @@ jQuery(document).ready(function($){
 
 
 
-	/*************************************
+	/****************************************
 		jQuery Smooth Scroll Functionality
-	*************************************/
+	****************************************/
 
 	// Select all links with hashes
 	$('a[href*="#"]')
-  // Remove links that don't actually link to anything
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    // On-page links
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Does a scroll target exist?
-      if (target.length) {
-        // Only prevent default if animation is actually gonna happen
-        event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 500, function() {
-          // Callback after animation
-          // Must change focus!
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) { // Checking if the target was focused
-            return false;
-          } else {
-            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-            $target.focus(); // Set focus again
-          };
-        });
-      }
-    }
+	  // Remove links that don't actually link to anything
+	  .not('[href="#"]')
+	  .not('[href="#0"]')
+	  .click(function(event) {
+	    // On-page links
+	    if (
+	      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+	      && 
+	      location.hostname == this.hostname
+	    ) {
+	      // Figure out element to scroll to
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+	      // Does a scroll target exist?
+	      if (target.length) {
+	        // Only prevent default if animation is actually gonna happen
+	        event.preventDefault();
+	        $('html, body').animate({
+	          scrollTop: target.offset().top
+	        }, 500, function() {
+	          // Callback after animation
+	          // Must change focus!
+	          var $target = $(target);
+	          $target.focus();
+	          if ($target.is(":focus")) { // Checking if the target was focused
+	            return false;
+	          } else {
+	            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+	            $target.focus(); // Set focus again
+	          };
+	        });
+	      }
+	    }
   });
 
 

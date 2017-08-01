@@ -12,7 +12,7 @@ body, input, textarea {
 }
 
 p {
-	line-height: 1.5;
+	line-height: 1.6;
 }
 
 
@@ -20,20 +20,13 @@ p {
 
 h1, h2, h3 {
 	font-weight: 400;
-}
-
-h1, h2 {
-	text-align: center;
+	letter-spacing: 1px;
 }
 
 h1 {
 	font-family: $stack-serif;
 	font-size: $large;
-	text-transform: uppercase;
-}
-
-h2, h4 {
-	font-family: $stack-san-serif;
+	line-height: 1.2;
 	text-transform: uppercase;
 }
 
@@ -44,6 +37,12 @@ h2 {
 h3 {
 	font-family: $stack-serif;
 	font-size: $large;
+	line-height: 1.6;
+}
+
+h2, h4 {
+	font-family: $stack-san-serif;
+	text-transform: uppercase;
 }
 
 h4 {

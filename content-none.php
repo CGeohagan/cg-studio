@@ -8,13 +8,13 @@
 
 <article class="post no-results not-found">
 	<header class="entry-header">
-		<h1 class="entry-title"><?php _e( 'Nothing Found', 'cg-studio' ); ?></h1>
+		<h1 class="entry-title"><?php _e( 'No things found!', 'cg-studio' ); ?></h1>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php if ( is_archive() ) : ?>
 		
-			<p><?php _e( 'There are no published posts for this archive. Try searching using keywords instead.', 'cg-studio' ); ?></p>
+			<p><?php _e( 'There are no published posts for this archive.', 'cg-studio' ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php elseif ( is_search() ) : ?>
