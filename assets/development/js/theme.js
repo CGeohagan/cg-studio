@@ -123,7 +123,7 @@ jQuery(document).ready(function($){
 		isVisible(items);
 		for (var i = 0; i < items.length; i++) {
 			var itemFirstChildren = items[i].firstElementChild.children;
-			visibleFadeInUp(items[i], itemFirstChildren, 100);
+			visibleFadeInUp(items[i], itemFirstChildren, 0);
 		}
 	}
 

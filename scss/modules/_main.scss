@@ -146,8 +146,9 @@
 	}
 
 	&__title {
-		font-size: $xxxlarge;
+		font-size: $xxlarge;
 		font-weight: 700;
+		text-align: center;
 	}
 
 	&__text {
@@ -169,6 +170,10 @@
 
 		&__text {
 			max-width: 30em;
+		}
+
+		&__title {
+			font-size: $xxxlarge;
 		}
 	}
 }
@@ -621,7 +626,7 @@
 			}
 
 			&-right {
-				max-width: 30em;
+				max-width: 33em;
 				padding-left: 2em;
 				text-align: left;
 				width: auto;
@@ -767,9 +772,6 @@
 /* Single Post Styles */
 
 .single {
-	background-color: $oatmeal;
-
-	
 
 	.entry-content {
 		max-width: 600px;
@@ -778,10 +780,7 @@
 
 		p {
 			font-family: $stack-san-serif;
-		}
-
-		a {
-			color: $dark-grey;
+			margin: 1em 0;
 		}
 	}
 
@@ -804,6 +803,10 @@
 		font-size: $xlarge;
 		text-transform: none;
 		text-decoration: underline;
+
+		a {
+			color: $dark-grey;
+		}
 	}
 
 	.post-categories {
