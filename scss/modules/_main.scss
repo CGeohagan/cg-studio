@@ -782,6 +782,20 @@
 			font-family: $stack-san-serif;
 			margin: 1em 0;
 		}
+
+		li {
+			line-height: 1.5;
+			margin: .5em 1em;
+
+			&:before {
+				color: $rouge;
+		    float: left;
+		    content: "•";
+		    font-size: 1.125rem;
+		    margin-top: -.05em;
+		    margin-left: -1em;
+			}
+		}
 	}
 
 	.entry-header {

@@ -96,7 +96,7 @@ jQuery(document).ready(function($){
 			var secEnd = sectOffset + secHeight;
 
 			// If the distance scrolled is between the top and bottom of a section, the visible class is added
-			if ( (bodyScrollTop >= (sectOffset - 140) && bodyScrollTop <= secEnd) || (docScrollTop >= (sectOffset - 140) && docScrollTop <= secEnd) ){
+			if ( (bodyScrollTop >= (sectOffset - 200) && bodyScrollTop <= secEnd) || (docScrollTop >= (sectOffset - 140) && docScrollTop <= secEnd) ){
 				sections[i].classList.add('visible');
 
 			// Else, the visible class is removed		
