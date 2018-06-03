@@ -21,17 +21,25 @@ jQuery(document).ready(function($){
 	const mobileMenu = document.querySelector('.mobile-menu');
 	const menu = document.querySelector('.menu');
 	const menuLinks = document.querySelectorAll('.menu a');
+	const toggleButton = document.querySelector('.access__toggle');
 
 	mobileMenu.addEventListener('click', function() {
 		menu.classList.add('is-menu-active');
 		TweenMax.staggerFromTo(menuLinks, .6, {opacity:0}, {opacity:1}, .1);
+		toggleButton.classList.add('is-toggle-active');
 	});
 
 	for (var i = 0; i < menuLinks.length; i++) {
 		menuLinks[i].addEventListener('click', function() {
 			menu.classList.remove('is-menu-active');
+			toggleButton.classList.remove('is-toggle-active');
 		});
 	}
+
+	toggleButton.addEventListener('click', function() {
+			menu.classList.remove('is-menu-active');
+			toggleButton.classList.remove('is-toggle-active');
+	});
 
 
 

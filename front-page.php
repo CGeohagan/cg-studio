@@ -83,8 +83,9 @@ get_header(); ?>
             <li>
               <span class="list__num">1</span>
               <p>Hi, I'm Colleen. I'm a <i>(sometimes fiery)</i> redhead. When I was little, people thought I was the baby from Willow <i>(you know, that Val Kilmer movie.)</i></p>
-              <?php get_template_part( 'assets/images/colleen.svg' );
-                      ?>
+<!--               <?php get_template_part( 'assets/images/Colleen.jpg' );
+                      ?> -->
+              <figure class="colleen-image"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Colleen.jpg" alt="Colleen Portrait"/></figure>
             </li>
             <li>
               <span class="list__num">2</span>
@@ -106,7 +107,7 @@ get_header(); ?>
             </li>
             <li>
               <span class="list__num">5</span>
-              <p>I've worked as an Environmental Engineer for 7 years.</p>
+              <p>I worked as an Environmental Engineer for 7 years.</p>
               <?php get_template_part( 'assets/images/beaker.svg' );
                       ?>
             </li>

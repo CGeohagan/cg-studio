@@ -419,6 +419,15 @@
 
 }
 
+.colleen-image {
+	margin: 0 auto;
+	width: 60%;
+
+	img {
+		border-radius: 100%;
+	}
+}
+
 @media (min-width: $m) {
 	.list {
 
@@ -431,6 +440,10 @@
 			font-size: $xxlarge;
 		}
 
+	}
+
+	.colleen-image {
+		width: 40%;
 	}
 }
 
@@ -795,6 +808,10 @@
 		    margin-top: -.05em;
 		    margin-left: -1em;
 			}
+		}
+
+		ul {
+			margin: 1em 0;
 		}
 	}
 
